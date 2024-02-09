@@ -1,14 +1,13 @@
-name: Amazon S3 Sample
+name: Amazon S3 Upload
 
 on:
   push:
     branches:
-      - develop
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
 
     steps:
       - name: Checkout
@@ -21,12 +20,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
 
-      - name: Output file contents
-        run: |
-          cat ./sample.txt
-
-      - name: Upload file to S3
+      - name: Upload to S3
         env: 
-          S3_BUCKET: ${{ secrets.koikedemobucket }}
+          S3_UPLOAD_BUCKET: ${{ secrets.S3_BUCKET }}
         run: |
-          aws s3 cp ./sample.txt s3://$S3_BUCKET/ --quiet
+          aws s3 sync . s3://$S3_UPLOAD_BUCKET/ --delete --exclude "README.md" --exclude ".git/*" --exclude ".github/*" --exclude ".gitignore"
