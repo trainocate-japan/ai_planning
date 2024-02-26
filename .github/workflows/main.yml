@@ -57,4 +57,4 @@ jobs:
 
     - name: Sync html to s3
       run: |
-        aws s3 sync build/html s3://${{ env.S3_BUCKET }}/docs --delete --quiet
+        aws s3 sync _build/html s3://${{ env.S3_BUCKET }}/docs --delete --quiet
