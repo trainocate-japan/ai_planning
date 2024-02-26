@@ -41,6 +41,10 @@ jobs:
     - name: Install nbsphinx
       run: |
         pip install nbsphinx
+        
+    - name: Install sphinx_rtd_theme
+      run: |
+        pip install sphinx_rtd_theme
 
     - name: Build html
       run: |
