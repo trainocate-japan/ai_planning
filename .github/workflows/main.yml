@@ -40,7 +40,7 @@ jobs:
 
     - name: Build html
       run: |
-        cd aona && make html
+        make html
 
     - name: Sync html to s3
       run: |
