@@ -37,6 +37,10 @@ jobs:
     - name: Install sphinx
       run: |
         pip install -U sphinx
+        
+    - name: Install nbsphinx
+      run: |
+        pip install nbsphinx
 
     - name: Build html
       run: |
