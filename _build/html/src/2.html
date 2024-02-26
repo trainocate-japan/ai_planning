@@ -53,8 +53,8 @@
 <li class="toctree-l1"><a class="reference internal" href="1.html">Introduction/Mod1 クラウド基礎</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Mod2 セキュリティ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ポリシー">ポリシー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#IAM-ロール">IAM ロール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#アカウントアクション">アカウントアクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#STS">STS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#IAM-アクセスアナライザー">IAM アクセスアナライザー</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#IAM-セキュリティのベストプラクティス">IAM セキュリティのベストプラクティス</a></li>
 </ul>
@@ -102,6 +102,14 @@
 <section id="ポリシー">
 <h2>ポリシー<a class="headerlink" href="#ポリシー" title="Link to this heading"></a></h2>
 <p>ジョブ機能の管理ポリシー：特定の職種と連携するように設計されたポリシー、管理が簡素化される。ゆるいポリシー</p>
+<p>管理ポリシー：AWS が管理を行うポリシー - サービスポリシー - 職務ポリシー</p>
+</section>
+<section id="IAM-ロール">
+<h2>IAM ロール<a class="headerlink" href="#IAM-ロール" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>AWS STS 一時認証を持つユーザの作成、提供ができる。 数千などのユーザーが居るときなどにしようされる。なぜかというと一人ひとりにユーザの作成を行うのが難しいから。</p></li>
+</ul>
+<p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html#STSConsoleLink_programPython">Lab の挙動</a>のようにシングルサインオン構成や別途ユーザ名やパスワードを管理する必要がなくなっている。 ロールやIAMポリシーはアクセスキーを発行し基本的には同様のことができるが<strong>セキュリティリスク</strong>の観点から非推奨となっている。実際にコンソールの画面を見ると、アクセスキーを発行時に別のオプションが表示される。</p>
 </section>
 <section id="アカウントアクション">
 <h2>アカウントアクション<a class="headerlink" href="#アカウントアクション" title="Link to this heading"></a></h2>
@@ -113,10 +121,6 @@
 <div class="line">単一アカウントアクション</div>
 <div class="line">特定のアクションを拒否したいとき、明示的な拒否が必要</div>
 </div>
-</section>
-<section id="STS">
-<h2>STS<a class="headerlink" href="#STS" title="Link to this heading"></a></h2>
-<p>一時認証を持つユーザの作成、提供ができる。 数千などのユーザーが居るときなどにしようされる。なぜかというと一人ひとりにユーザの作成を行うのが難しいから。</p>
 </section>
 <section id="IAM-アクセスアナライザー">
 <h2>IAM アクセスアナライザー<a class="headerlink" href="#IAM-アクセスアナライザー" title="Link to this heading"></a></h2>
