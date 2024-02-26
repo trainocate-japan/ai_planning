@@ -46,6 +46,10 @@ jobs:
       run: |
         pip install sphinx_rtd_theme
 
+    - name: Install pandoc
+      run: |
+        pip install pandoc
+
     - name: Build html
       run: |
         make html
