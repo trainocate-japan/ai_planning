@@ -54,7 +54,16 @@
 <li class="toctree-l1"><a class="reference internal" href="2.html">Mod2 セキュリティ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.html">Mod3 ネットワーク</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4.html">Mod4 コンピューティング</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Mod5 ストレージ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mod5 ストレージ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#S3">S3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#暗号化の補足">暗号化の補足</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#データの暗号化とは">データの暗号化とは</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#EFS">EFS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#事例紹介">事例紹介</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="6.html">Mod6 データベース</a></li>
 <li class="toctree-l1"><a class="reference internal" href="7.html">Mod7 モニタリング・スケーリング</a></li>
 <li class="toctree-l1"><a class="reference internal" href="8.html">Mod8 自動化</a></li>
@@ -91,7 +100,40 @@
              
   <section id="Mod5-ストレージ">
 <h1>Mod5 ストレージ<a class="headerlink" href="#Mod5-ストレージ" title="Link to this heading"></a></h1>
-<p>11</p>
+<section id="S3">
+<h2>S3<a class="headerlink" href="#S3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>データレイクとしての活用 ビックデータを扱った分析基盤システムを構築する際のデータレイク（データの一時集計場所としても利用可能）</p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/WebsiteHosting.html">デモ S3静的Webページの公開</a></p></li>
+</ul>
+<ul class="simple">
+<li><p>すべてのストレージクラスを横断したライフサイクルポリシーの設定が可能</p></li>
+<li><p>バケットポリシーには20kbの制限がある。複数のオブジェクトにアクセス制御をするときにはバケットACLを使用</p></li>
+<li><p>バケットポリシーのConditionにaws:kms を記述することで、アップロード時の暗号化を強制することができる。</p></li>
+<li><p>オブジェクトロックで削除・修正をブロックできる。バージョニングと併用する必要がある。</p></li>
+<li><p>バッチオペレーションを使用してオブジェクトのコピーはLamda関数のコールなど大量のデータに対する処理を周期的に設定することができる。
+【ポリシーの使い分け】
+<strong>IAM ポリシーはアカウント単位、バケットポリシーはバケット単位、ACLはオブジェクト単位でアクセス制御をすることが多い</strong></p></li>
+</ul>
+</section>
+<section id="暗号化の補足">
+<h2>暗号化の補足<a class="headerlink" href="#暗号化の補足" title="Link to this heading"></a></h2>
+<section id="データの暗号化とは">
+<h3>データの暗号化とは<a class="headerlink" href="#データの暗号化とは" title="Link to this heading"></a></h3>
+<p>暗号化→暗号化キーと暗号アルゴリズムによって解読不可能な暗号文に変換すること。暗号文は複合キーでもとに戻す。暗号化、復号化の双方向の変換ができるので可逆性ともいう。同じ鍵のときは共通鍵暗号方式、別の時を公開暗号方式がある</p>
+<ul class="simple">
+<li><p>ハッシュ化:不可逆な変換、電子署名などで利用されている</p></li>
+</ul>
+<p>KMS は暗号化キーの作成と制御を簡単にする。共通鍵、公開鍵どちらも使用することができる。また、FIPS という米国企画に対応した暗号化がなされている。</p>
+</section>
+</section>
+<section id="EFS">
+<h2>EFS<a class="headerlink" href="#EFS" title="Link to this heading"></a></h2>
+</section>
+<section id="事例紹介">
+<h2>事例紹介<a class="headerlink" href="#事例紹介" title="Link to this heading"></a></h2>
+<p>テレビ東京の事例 過去の番組データをテープからデータ化を行い、数千万円のコストカットを実現。過去のテープを探す手間やテープを保管する場所代などを削減することに成功</p>
+</section>
 </section>
 
 

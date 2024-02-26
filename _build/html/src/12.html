@@ -61,7 +61,11 @@
 <li class="toctree-l1"><a class="reference internal" href="9.html">Mod9 コンテナ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10.html">Mod10 ネットワーク2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11.html">Mod11 サーバレス</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Mod12 エッジサービス</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mod12 エッジサービス</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#NetworkSecurity">NetworkSecurity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#その他のセキュリティサービス">その他のセキュリティサービス</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="13.html">Mod13 バックアップと復旧</a></li>
 </ul>
 
@@ -91,6 +95,31 @@
              
   <section id="Mod12-エッジサービス">
 <h1>Mod12 エッジサービス<a class="headerlink" href="#Mod12-エッジサービス" title="Link to this heading"></a></h1>
+<p>Route53</p>
+<section id="NetworkSecurity">
+<h2>NetworkSecurity<a class="headerlink" href="#NetworkSecurity" title="Link to this heading"></a></h2>
+<p>AWS WAFの補足:AWS 側でよくある攻撃パターンが学習されている。ルールにはIPアドレス、送信元の国、リクエストヘッダー、リクエストに含まれる文字列などが含まれて設定できる</p>
+<p>AWS FirewallManagerの補足:複数アカウントでAWS セキュリティを一元管理するサービス。Waf,Shield Advanced,SG,ACL,Route53FW、サードパーティFWを一元管理できる。前提としてOrganizationｓに参加しAWS Configを有効にする</p>
+</section>
+<section id="その他のセキュリティサービス">
+<h2>その他のセキュリティサービス<a class="headerlink" href="#その他のセキュリティサービス" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">AWS Certificate Manager:SSL/TLS など証明書の、及びキー太の作成、保存、更新を行う</div>
+<div class="line">ACM はドメイン認証の証明書。外部からインポートされた証明書は自動講師はされないためマニュアル更新する必要がある</div>
+</div>
+<div class="line-block">
+<div class="line">AWS Secrets Manager:データベースの認証情報やパスワードなどの任意のシークレット情報のライフサイクルを一元的に管理</div>
+<div class="line">パスワードなどをアプリで保管せず、このようなサービスを使用する</div>
+</div>
+<div class="line-block">
+<div class="line">Amazon Macie （ミーシー）:S3 から機械学習によって機密情報を検出することができる</div>
+<div class="line">Macie によって検出された結果はKMS で暗号化される</div>
+</div>
+<div class="line-block">
+<div class="line">Amazon GuardDuty:ストレージやログサービスを分析し脅威となるデータを抽出する</div>
+<div class="line">機械学習の手法を使って自動検出が可能である</div>
+</div>
+</section>
 </section>
 
 
