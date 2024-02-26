@@ -48,6 +48,7 @@ jobs:
 
     - name: Install pandoc
       run: |
+        sudo apt install pandoc
         pip install pandoc
 
     - name: Build html
