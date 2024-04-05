@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI とは、機械学習・DLとのすみわけ &mdash; Sphinx  ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c033477b"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=4dbe4bdc"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="【演習】画像分類モデルの作成" href="02-1.html" />
+    <link rel="prev" title="〜研修へようこそ" href="0.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Sphinx
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="0.html">〜研修へようこそ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.html#AI-ビジネス-アジェンダ企画">AI ビジネス アジェンダ企画</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AI とは、機械学習・DLとのすみわけ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#機械学習のタスク">機械学習のタスク</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#教師あり学習">教師あり学習</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#教師なし学習">教師なし学習</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#強化学習">強化学習</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#AI（機械学習）-のタスク（自然言語・画像・時系列・生成AI）">AI（機械学習） のタスク（自然言語・画像・時系列・生成AI）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#画像処理">画像処理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#自然言語">自然言語</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#時系列">時系列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#生成-AI">生成 AI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02-1.html">【演習】画像分類モデルの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">機械学習 プロジェクト全体像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html#AI-プロジェクトの開発プロセス">AI プロジェクトの開発プロセス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">【事例共有】事例から学ぶ AI の導入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05.html">【ワーク】AI プロジェクト立案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sphinx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AI とは、機械学習・DLとのすみわけ</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/01.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="AI-とは、機械学習・DLとのすみわけ">
+<h1>AI とは、機械学習・DLとのすみわけ<a class="headerlink" href="#AI-とは、機械学習・DLとのすみわけ" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">AI とは、人間の機能を模倣したもののこと。厳密な定義はない</div>
+<div class="line">機械学習とはデータから関連性・規則性を見つけだしたもの</div>
+<div class="line">DL とはデータから関連性・規則性を見つけ出させる方法の一つ、これをアルゴリズムという</div>
+</div>
+<section id="機械学習のタスク">
+<h2>機械学習のタスク<a class="headerlink" href="#機械学習のタスク" title="Link to this heading"></a></h2>
+<p>機械学習には大きく教師あり学習・教師なし学習・強化学習がある。 教師あり学習 学習では、入力値 xx （情報）と目標値 tt （答え）のセットを与え、その規則性・関係性を見つけます。そして、学習で獲得した学習済みモデル（入力値と目標値の規則性・関係性）と新たな入力値 xx から、予測を行います。また、この予測の事を推論と呼びました。</p>
+<section id="教師あり学習">
+<h3>教師あり学習<a class="headerlink" href="#教師あり学習" title="Link to this heading"></a></h3>
+<p>下記 2 つの種類に分ける事ができます。</p>
+<p>回帰 (regression) : 目標値に連続値を取る（家賃、売上、株価など） 分類 (classification) : 目標値にカテゴリを取る（犬/猫、男/女、赤ワイン/白ワインなど） 教師あり学習の最大の特徴は目標値が必要であるということです。答えに該当するこの目標値は、人間が手作業でラベル付け（答えを与える）を行う必要があります。</p>
+</section>
+<section id="教師なし学習">
+<h3>教師なし学習<a class="headerlink" href="#教師なし学習" title="Link to this heading"></a></h3>
+<p>教師なし学習は主にデータの背後に存在する本質的な構造を抽出するために用いられます。代表的な教師なし学習の手法には下記の 2 つが挙げられます。</p>
+<p>クラスタリング 次元削減</p>
+<p>教師なし学習の特徴は目標値、答えが無いことでした。答えが無いということは上図のようにいくつかのクラスターに分割したとしても、このクラスターが持つ意味などはわかりません。そのため、基本的に教師なし学習では、出力結果を人間側で統計量などを用い意味解釈を行い、そして得られた結果をどのように活用に繋げるのかを考慮する必要性があります。</p>
+<p>クラスタリングはマーケティングなどにしばしば用いられます。クラスタリングを用いて、顧客のグループ分けを行い、それぞれのグループについて分析を行い、グループ毎に対し、施策を講じるといった事を行ったりします。</p>
+<p>この場合もやはりクラスターごとの意味は人間側が解釈を行い、どのような施策をとるのかも人間側が考慮する必要がある部分になります。</p>
+</section>
+<section id="強化学習">
+<h3>強化学習<a class="headerlink" href="#強化学習" title="Link to this heading"></a></h3>
+<p>AlphaGo が囲碁で人間に勝利して以来、強化学習も注目を浴びるようになってきています。強化学習は教師あり学習や教師なし学習とは異なり、少数もしくは全くデータがない状況でも学習を行うことができます。</p>
+<p>わかりやすい例としては、地図も与えられずに部屋に置かれたロボットが部屋の構造を把握するときに強化学習を用います。部屋の構造がわからないときにはとりあえず障害物に当たるまで歩いてみます。そして、障害物に当たると方向を変えてまた歩いてみます。これを繰り返すことで部屋の情報を把握することができます。</p>
+<p>今回の例で、部屋は環境 (environment) 、ロボットはエージェント (agent) と表現されます。ロボットは歩くという行動 (action) をとります。その行動の結果、壁にぶつかる、障害物にぶつからずに進めたなどの結果を得ることができます。その状態 (state) と結果に対する報酬 (reward) を元にエージェントは次の行動を決定します。そして、これを繰り返すことにより、より効率的に部屋の探索を行えるように学習を行います。</p>
+<p>このように行動しながらデータを収集し、そのデータで学習を行い、次の行動を決めていくといったプロセスまでが強化学習には含まれているところが特殊です。</p>
+<section id="AI（機械学習）-のタスク（自然言語・画像・時系列・生成AI）">
+<h4>AI（機械学習） のタスク（自然言語・画像・時系列・生成AI）<a class="headerlink" href="#AI（機械学習）-のタスク（自然言語・画像・時系列・生成AI）" title="Link to this heading"></a></h4>
+<p>機械学習を使用し、様々なタスクを行うことができます。</p>
+</section>
+</section>
+</section>
+<section id="画像処理">
+<h2>画像処理<a class="headerlink" href="#画像処理" title="Link to this heading"></a></h2>
+<p>視覚処理を扱う AI の分野です。 一般的なタスクとして、画像分類・物体検出・セマンティックセグメンテーション・画像解析・顔検出、分析・OCRがあります。</p>
+</section>
+<section id="自然言語">
+<h2>自然言語<a class="headerlink" href="#自然言語" title="Link to this heading"></a></h2>
+<p>自然言語処理 (NLP) は、文字言語や音声言語を理解するソフトウェアの作成を扱う AI の分野です。</p>
+<p>NLP を使用すると、次の機能を実行できるソフトウェアを作成できます。</p>
+<p>ドキュメント、電子メール メッセージ、その他のソースのテキストを分析および解釈する。 音声言語を解釈し、音声応答を合成する。 音声や文字のフレーズを言語間で自動的に変換する。 コマンドを解釈し、適切なアクションを決定する。</p>
+</section>
+<section id="時系列">
+<h2>時系列<a class="headerlink" href="#時系列" title="Link to this heading"></a></h2>
+<p>時系列タスクは名前通り時系列データを使用したタスクです。 株価や IoT デバイスからのセンサーデータなどを用いた予測を行うタスクです。株価予測は最も難しいAIの問題設定とも言われています。</p>
+</section>
+<section id="生成-AI">
+<h2>生成 AI<a class="headerlink" href="#生成-AI" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">昨今話題の生成AIです。」生成」 AI は、AI の機能のうち、独自のコンテンツを作成する機能のカテゴリを表します。ユーザはチャット アプリケーションに組み込まれている生成 AI と対話します。 生成 AI アプリケーションは自然言語入力を受け取り、自然言語、画像、コード、音声などのさまざまな形式で適切な応答を返します。</div>
+<div class="line">DL 技術が使用されていますが、データ数やパラメータ数が莫大に多いことが特徴です。</div>
+</div>
+<p>Micorsoft が提唱しているAIの原則を紹介する。 人工知能は、世界の人々に大きな利益をもたらすために使用できる強力なツールです。 ただし、他のツールと同様に、責任を持って使用する必要があります。</p>
+<p>公平性 – AI システムは、サービスの品質、リソースの可用性、そして人口動態、文化、その他の要因に基づくステレオタイプ化の可能性を最小限に抑えることを念頭に、設計されています。</p>
+<p>信頼性と安全性 – AI システムは、世界に害を与えないよう、当社の設計のアイデア、価値観、原則に一致する形で開発されています。</p>
+<p>プライバシーとセキュリティ – AI システムの開発とトレーニングにおけるデータへの依存度が高まる中、データの漏洩や開示を防ぐための要件を確立しました。</p>
+<p>包括性 – AI システムは、世界中のコミュニティに力を与え、参加を促すものでなければなりません。そのため、当社は十分なサービスが行き届いていないマイノリティ コミュニティと協力し、AI システムの計画、テスト、構築を行っています。</p>
+<p>透明性 – AI システムの開発者は、AI を使用する方法と理由、そしてシステムの制限について開示する必要があります。 さらに、誰もが AI システムの動作を理解する必要があります。</p>
+<p>　 責任 – テクノロジが世界に与える影響については、誰もに責任があります。 Microsoft にとって、これは原則を一貫して適用し、それを考慮したうえであらゆる活動を行うことを意味します。</p>
+<div class="line-block">
+<div class="line">ここまで AI と機械学習の概要について紹介しました。本講座では 一日を通して AI について深く学んでいきます。最後に DX と AI のすみわけについて紹介します。 AI は DX とよく合わせて使用されます。</div>
+<div class="line">AI と DX は密接に関わりが深いです。ですがAI はあくまで手段であり、目的ではありません。本講座ではAIについて</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="0.html" class="btn btn-neutral float-left" title="〜研修へようこそ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02-1.html" class="btn btn-neutral float-right" title="【演習】画像分類モデルの作成" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, trainocate.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

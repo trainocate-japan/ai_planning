@@ -104,7 +104,11 @@ html_static_path = ['_static']
 # default: ``['localtoc.html', 'relations.html', 'sourcelink.html',
 # 'searchbox.html']``.
 #
-# html_sidebars = {}
+html_sidebars = {
+    # "ドキュメント名": ["テンプレート名", "テンプレート名", ...],
+    "**": ["localtoc.html", "relations.html", "sourcelink.html", "searchbox.html"],
+    "using/windows": ["windowssidebar.html", "searchbox.html"],
+}
 
 
 # -- Options for HTMLHelp output ---------------------------------------------

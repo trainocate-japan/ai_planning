@@ -11,6 +11,13 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "[RDS のレプリケーションの話](https://qiita.com/bonjiko/items/e61a2f4e44da1535829c)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Redshift\n",
     "Redshift は RDB のデータベースです。ですがRDS とユースケースが異なります。\n",
     "Redshift は DWH として使用されます。DWHはビックデータの分析基盤を作成するときに、構造化され、きれいになったデータが蓄積される場所です。\n",
