@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>【事例共有】事例から学ぶ AI の導入 &mdash; Sphinx  ドキュメント</title>
+  <title>4.【事例共有】事例から学ぶ AI の導入 &mdash; Sphinx  ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -26,7 +26,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="【ワーク】AI プロジェクト立案" href="05.html" />
-    <link rel="prev" title="【デモ】API での推論（AzureAIを使用した画像とテキスト分析）" href="03.html" /> 
+    <link rel="prev" title="3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）" href="03.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,13 +51,13 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="0.html">〜研修へようこそ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0.html#AI-ビジネス-アジェンダ企画">AI ビジネス アジェンダ企画</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01.html">AI とは、機械学習・DLとのすみわけ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02-1.html">【演習】画像分類モデルの作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02.html">機械学習 プロジェクト全体像</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02.html#AI-プロジェクトの開発プロセス">AI プロジェクトの開発プロセス</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03.html">【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">【事例共有】事例から学ぶ AI の導入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.html#0.AI-ビジネス-アジェンダ企画">0.AI ビジネス アジェンダ企画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01.html">1.AI とは、機械学習・DLとのすみわけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1.html">1-1【演習】画像分類モデルの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2.機械学習 プロジェクト全体像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html#3.AI-プロジェクトの開発プロセス">3.AI プロジェクトの開発プロセス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4.【事例共有】事例から学ぶ AI の導入</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05.html">【ワーク】AI プロジェクト立案</a></li>
 </ul>
 
@@ -75,7 +75,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">【事例共有】事例から学ぶ AI の導入</li>
+      <li class="breadcrumb-item active">4.【事例共有】事例から学ぶ AI の導入</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/src/04.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -85,17 +85,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="【事例共有】事例から学ぶ-AI-の導入">
-<h1>【事例共有】事例から学ぶ AI の導入<a class="headerlink" href="#【事例共有】事例から学ぶ-AI-の導入" title="Link to this heading"></a></h1>
-<p>失敗事例から学ぶAIの導入（画像処理）</p>
-<p>成功事例から学ぶAI の導入（需要予測）</p>
+  <section id="4.【事例共有】事例から学ぶ-AI-の導入">
+<h1>4.【事例共有】事例から学ぶ AI の導入<a class="headerlink" href="#4.【事例共有】事例から学ぶ-AI-の導入" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">失敗事例から学ぶAIの導入（画像処理） コスト削減のためにAIを導入する企業も多いですが、AI開発費用とランニングコストがコスト削減効果を上回る場合があります。また、AI 導入にかかる費用はAIの開発と運用費用だけではありません。</div>
+<div class="line">例えば画像処理を導入する場合、まずは画像を収集するためのカメラが必要になります。</div>
+<div class="line">製造業で扱われるような画像を使用した異常品検知をするのであれば、製品を360°画像にするためのカメラ設備が必要です。</div>
+<div class="line">また、製品の型番などが変わってしまえば新しくAI を開発する必要があり、予測以上にお金がかかります。</div>
+</div>
+<div class="line-block">
+<div class="line">成功事例から学ぶAI の導入（需要予測）</div>
+<div class="line"><a class="reference external" href="https://ledge.ai/articles/jre-water-hivery-enhance-interview">https://ledge.ai/articles/jre-water-hivery-enhance-interview</a></div>
+</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="03.html" class="btn btn-neutral float-left" title="【デモ】API での推論（AzureAIを使用した画像とテキスト分析）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="03.html" class="btn btn-neutral float-left" title="3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="05.html" class="btn btn-neutral float-right" title="【ワーク】AI プロジェクト立案" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

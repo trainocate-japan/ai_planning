@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>機械学習 プロジェクト全体像 &mdash; Sphinx  ドキュメント</title>
+  <title>2.機械学習 プロジェクト全体像 &mdash; Sphinx  ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="【デモ】API での推論（AzureAIを使用した画像とテキスト分析）" href="03.html" />
-    <link rel="prev" title="【演習】画像分類モデルの作成" href="02-1.html" /> 
+    <link rel="next" title="3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）" href="03.html" />
+    <link rel="prev" title="1-1【演習】画像分類モデルの作成" href="02-1.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,11 +51,12 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="0.html">〜研修へようこそ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0.html#AI-ビジネス-アジェンダ企画">AI ビジネス アジェンダ企画</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01.html">AI とは、機械学習・DLとのすみわけ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02-1.html">【演習】画像分類モデルの作成</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">機械学習 プロジェクト全体像</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="0.html#0.AI-ビジネス-アジェンダ企画">0.AI ビジネス アジェンダ企画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01.html">1.AI とは、機械学習・DLとのすみわけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1.html">1-1【演習】画像分類モデルの作成</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2.機械学習 プロジェクト全体像</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#プロジェクトスコープの決定">プロジェクトスコープの決定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#新規ビジネスのためのAI">新規ビジネスのためのAI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#機械学習とソフトウェア導入の違い">機械学習とソフトウェア導入の違い</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#機械学習システムに求められる要件">機械学習システムに求められる要件</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#【補足】研究と実務の違い">【補足】研究と実務の違い</a></li>
@@ -68,7 +69,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#AI-プロジェクトの開発プロセス">AI プロジェクトの開発プロセス</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#3.AI-プロジェクトの開発プロセス">3.AI プロジェクトの開発プロセス</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#モデル開発・検証の全体的な流れ">モデル開発・検証の全体的な流れ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#データの前処理">データの前処理</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#構築">構築</a></li>
@@ -87,14 +88,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#【補足】機械学習のニーズ">【補足】機械学習のニーズ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#モデルの運用">モデルの運用</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#リアルタイム推論とは">リアルタイム推論とは</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#モデルの運用">モデルの運用</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="03.html">【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04.html">【事例共有】事例から学ぶ AI の導入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">4.【事例共有】事例から学ぶ AI の導入</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05.html">【ワーク】AI プロジェクト立案</a></li>
 </ul>
 
@@ -112,7 +110,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">機械学習 プロジェクト全体像</li>
+      <li class="breadcrumb-item active">2.機械学習 プロジェクト全体像</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/src/02.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -122,8 +120,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="機械学習-プロジェクト全体像">
-<h1>機械学習 プロジェクト全体像<a class="headerlink" href="#機械学習-プロジェクト全体像" title="Link to this heading"></a></h1>
+  <section id="2.機械学習-プロジェクト全体像">
+<h1>2.機械学習 プロジェクト全体像<a class="headerlink" href="#2.機械学習-プロジェクト全体像" title="Link to this heading"></a></h1>
 <p>機械学習は反復型のプロセス である。手順は大きく下記の手順。本講座ではビジネス視点はあまり扱わずに技術よりの視点でそれぞれを解説します。</p>
 <div class="line-block">
 <div class="line">プロジェクトスコープ決定</div>
@@ -134,7 +132,10 @@
 </div>
 <section id="プロジェクトスコープの決定">
 <h2>プロジェクトスコープの決定<a class="headerlink" href="#プロジェクトスコープの決定" title="Link to this heading"></a></h2>
-<p>業務改善のためのAIか新規ビジネスのためのAIか ### 業務改善のためのAI ### 新規ビジネスのためのAI</p>
+<p>業務改善のためのAIか新規ビジネスのためのAIかをまずは決定する必要がある。 ### 業務改善のためのAI</p>
+<section id="新規ビジネスのためのAI">
+<h3>新規ビジネスのためのAI<a class="headerlink" href="#新規ビジネスのためのAI" title="Link to this heading"></a></h3>
+</section>
 <section id="機械学習とソフトウェア導入の違い">
 <h3>機械学習とソフトウェア導入の違い<a class="headerlink" href="#機械学習とソフトウェア導入の違い" title="Link to this heading"></a></h3>
 <div class="line-block">
@@ -176,8 +177,8 @@
 </section>
 </section>
 </section>
-<section id="AI-プロジェクトの開発プロセス">
-<h1>AI プロジェクトの開発プロセス<a class="headerlink" href="#AI-プロジェクトの開発プロセス" title="Link to this heading"></a></h1>
+<section id="3.AI-プロジェクトの開発プロセス">
+<h1>3.AI プロジェクトの開発プロセス<a class="headerlink" href="#3.AI-プロジェクトの開発プロセス" title="Link to this heading"></a></h1>
 <p>ここまで説明した、企画→分析のためのデータ基盤があり、そこから AI の開発に進む。データ基盤なしで開発に進む企業も多いが、その後の運用を考えたときにデータ基盤があったほうが AI 導入におけるビジネス成功率が高まる。</p>
 <div class="line-block">
 <div class="line">次に AI の開発手順について確認する。以下のような手順で開発を行う。</div>
@@ -187,13 +188,23 @@
 <h2>モデル開発・検証の全体的な流れ<a class="headerlink" href="#モデル開発・検証の全体的な流れ" title="Link to this heading"></a></h2>
 <section id="データの前処理">
 <h3>データの前処理<a class="headerlink" href="#データの前処理" title="Link to this heading"></a></h3>
-<p>AI の開発において最も時間のかかる、フローがデータの前処理です。 ETL の処理においてはテーブル化を行うための処理をしました。 こちらでは下記のような前処理を行います。 スケーリング 欠損値処理 数値化</p>
+<div class="line-block">
+<div class="line">AI の開発において最も時間のかかる、フローがデータの前処理です。 ETL の処理においてはテーブル化を行うための処理をしました。 こちらでは下記のような前処理を行います。 スケーリング</div>
+<div class="line">欠損値処理</div>
+<div class="line">数値化</div>
+</div>
 </section>
 <section id="構築">
 <h3>構築<a class="headerlink" href="#構築" title="Link to this heading"></a></h3>
+<div class="line-block">
+<div class="line">前処理を行い、AI の構築を行います。 実際にモデルを作成するうえでの代表的な考慮事項としてアルゴリズムとハイパーパラメータについてお伝えします。 アルゴリズム：計算方法です。代表的な手法としてDLや重回帰分析、SVM、決定木などがあります。複雑なアルゴリズムほど、難しい予測が可能になりますが逆になぜその予測となったとのかが説明しにくくなります。</div>
+<div class="line">ハイパーパラメータ：決定したアルゴリズムで計算を行う際に人間側で調整を行うパラメータのことです。例えば決定木という手法であれば分岐を何回行うのか、深さをどのくらいにするのかなどといったハイパーパラメータがあります。</div>
+</div>
+<p>最適なアルゴリズム・ハイパーパラメータを決定することによりより精度の高いモデルを作成することが可能です。</p>
 </section>
 <section id="AI-の評価（分類・回帰）">
 <h3>AI の評価（分類・回帰）<a class="headerlink" href="#AI-の評価（分類・回帰）" title="Link to this heading"></a></h3>
+<p>次に AI の評価についてお話します。一般的な指標として分類であれば当てはまり率を表す成果率（ACC）や回帰であれば、予測と実際の値の誤差をみて評価をすることが可能です。ですがデータが不均衡で有った場合などでもAIを評価出来るよう代表的な評価指標を紹介します。</p>
 </section>
 <section id="分類の評価指標">
 <h3>分類の評価指標<a class="headerlink" href="#分類の評価指標" title="Link to this heading"></a></h3>
@@ -224,13 +235,20 @@
 </section>
 <section id="モデルの運用">
 <h2>モデルの運用<a class="headerlink" href="#モデルの運用" title="Link to this heading"></a></h2>
-<p>モデルの運用は大きく、リアルタイムorバッチ推論、構築・デプロイの環境や再学習のパイプライン、監視などがある。 AI を導入するにあたってバッチ推論かリアルタイム推論のユースケースなのかを判断する ### バッチ推論とは</p>
-<section id="リアルタイム推論とは">
-<h3>リアルタイム推論とは<a class="headerlink" href="#リアルタイム推論とは" title="Link to this heading"></a></h3>
-<p>次に、構築・運用を行う環境について確認する。大きく、オンプレミスかクラウドかまたは両方のハイブリッドを選択出来る。 ### オンプレミスでのAI構築・運用 ### クラウドでのAI 構築・運用</p>
-<p>最後に監視。 AI の精度を見ることももちろん重要だが、データの変化を監視することも重要。</p>
+<div class="line-block">
+<div class="line">モデルの運用は大きく、リアルタイムorバッチ推論、構築・デプロイの環境や再学習のパイプライン、監視などがある。 AI を導入するにあたってバッチ推論かリアルタイム推論のユースケースなのかを判断する ### バッチ推論とは 集に 1 回など決まったタイミングで一括で推論を行う。</div>
+<div class="line">ある程度、見積もりが立てて運用することが可能 ### リアルタイム推論とは データの送信とともに推論を行い予測を行う。 一時的な需要の増加にも可用性を維持出来るようなアーキテクチャを考慮する必要がある。</div>
+</div>
+<div class="line-block">
+<div class="line">次に、構築・運用を行う環境について確認する。大きく、オンプレミスかクラウドかまたは両方のハイブリッドを選択出来る。 ### オンプレミスでのAI構築・運用 自社内で AI の開発・運用を行う。</div>
+<div class="line">設備投資が必要だが、よりセキュアにAI構築・運用を行うことが可能。既存の技術を使用することが出来る。 サーバー管理や環境構築から運用までをすべて自社で行う。 ### クラウドでのAI 構築・運用 事前の設備投資は必要ない、開発しながら求められるスペックなどを検討出来る。スケールアウトなども用意 デフォルトだとクラウドストレージへのデータのアップロードはインターネットを通るため、ネットワーク整備などが必要。データのガバナンスなどの確認も必要。</div>
+<div class="line">開発者はより AI 開発に焦点を置きながら開発を行うことが可能。</div>
+</div>
+<div class="line-block">
+<div class="line">最後に監視。 AI の精度を見ることももちろん重要だが、データの変化を監視することも重要。 データの変化によって、モデルの精度が落ちることをデータドリフトという。</div>
+<div class="line">モデルの運用状況の監視も重要だが、データドリフトの監視も重要。データの周期性などを理解することによって再学習のタイミングを決めることも可能。</div>
+</div>
 <p>クラウドでのAI の活用について実際に触って体験してみる。</p>
-</section>
 </section>
 </section>
 
@@ -238,8 +256,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="02-1.html" class="btn btn-neutral float-left" title="【演習】画像分類モデルの作成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="03.html" class="btn btn-neutral float-right" title="【デモ】API での推論（AzureAIを使用した画像とテキスト分析）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="02-1.html" class="btn btn-neutral float-left" title="1-1【演習】画像分類モデルの作成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="03.html" class="btn btn-neutral float-right" title="3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

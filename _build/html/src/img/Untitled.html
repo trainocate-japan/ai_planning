@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>環境構築 &mdash; Sphinx  ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=c033477b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Sphinx
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../0.html">〜研修へようこそ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0.html#0.AI-ビジネス-アジェンダ企画">0.AI ビジネス アジェンダ企画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01.html">1.AI とは、機械学習・DLとのすみわけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-1.html">1-1【演習】画像分類モデルの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.html">2.機械学習 プロジェクト全体像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.html#3.AI-プロジェクトの開発プロセス">3.AI プロジェクトの開発プロセス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.html">3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.html">4.【事例共有】事例から学ぶ AI の導入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.html">【ワーク】AI プロジェクト立案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sphinx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">環境構築</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/img/Untitled.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="環境構築">
+<h1>環境構築<a class="headerlink" href="#環境構築" title="Link to this heading"></a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install azure-cognitiveservices-vision-computervision
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Requirement already satisfied: azure-cognitiveservices-vision-computervision in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (0.9.0)
+Requirement already satisfied: azure-common~=1.1 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from azure-cognitiveservices-vision-computervision) (1.1.28)
+Requirement already satisfied: msrest&gt;=0.5.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from azure-cognitiveservices-vision-computervision) (0.7.1)
+Requirement already satisfied: requests~=2.16 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (2.31.0)
+Requirement already satisfied: isodate&gt;=0.6.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (0.6.1)
+Requirement already satisfied: azure-core&gt;=1.24.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.26.4)
+Requirement already satisfied: requests-oauthlib&gt;=0.5.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.3.1)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (2022.9.24)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from requests~=2.16-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (3.1.0)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from requests~=2.16-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.26.16)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from requests~=2.16-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (3.4)
+Requirement already satisfied: six in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from isodate&gt;=0.6.0-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.16.0)
+Requirement already satisfied: typing-extensions&gt;=4.3.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from azure-core&gt;=1.24.0-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (4.6.0)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from requests-oauthlib&gt;=0.5.0-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (3.2.2)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
+from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
+from msrest.authentication import CognitiveServicesCredentials
+#　モジュールの読み込み
+from PIL import Image
+import os
+key = &#39;107d563c469e4fef8dc186b223eb63ed&#39;
+
+credentials = CognitiveServicesCredentials(key)
+client = ComputerVisionClient(
+    endpoint=&quot;https://koike02.cognitiveservices.azure.com/&quot;,
+    credentials=credentials
+)
+</pre></div>
+</div>
+</div>
+<p>ComputerVisionClient クライアント オブジェクトを使用することによって、次のことができます。</p>
+<ul class="simple">
+<li><p>画像の分析: 顔、色、タグなど、特定の機能の画像を分析できます。</p></li>
+<li><p>画像の説明を取得する: そのサブジェクト ドメインに基づいて画像の説明を取得します。</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import requests
+import io
+from io import BytesIO
+import urllib
+from urllib.request import urlopen
+</pre></div>
+</div>
+</div>
+</section>
+<section id="画像分析">
+<h1>画像分析<a class="headerlink" href="#画像分析" title="Link to this heading"></a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import requests
+import numpy as np
+from PIL import Image
+from io import BytesIO
+
+# 画像のURL
+image_url = &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg&quot;
+
+# 画像を取得
+response = requests.get(image_url)
+image_bytes = BytesIO(response.content)
+
+# PILを使用して画像を開く
+image_pil = Image.open(image_bytes)
+display(image_pil)
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/src_img_Untitled_6_0.png" src="../../_images/src_img_Untitled_6_0.png" />
+</div>
+</div>
+<p>上記の画像を使用し、分析を行います。まずは画像に写っている情報の検出を行いましょう。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># image_analytics で上の画像分析する
+image_analysis = client.analyze_image(url,visual_features=[VisualFeatureTypes.tags])
+
+for tag in image_analysis.tags:
+    print(tag)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;building&#39;, &#39;confidence&#39;: 0.9910045862197876, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;metropolis&#39;, &#39;confidence&#39;: 0.9403555393218994, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;metropolitan area&#39;, &#39;confidence&#39;: 0.9358731508255005, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;downtown&#39;, &#39;confidence&#39;: 0.9340376853942871, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;outdoor&#39;, &#39;confidence&#39;: 0.9233906269073486, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;skyscraper&#39;, &#39;confidence&#39;: 0.9208872318267822, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;urban area&#39;, &#39;confidence&#39;: 0.9175583124160767, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;street&#39;, &#39;confidence&#39;: 0.8893557786941528, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;commercial building&#39;, &#39;confidence&#39;: 0.8842802047729492, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;mixed-use&#39;, &#39;confidence&#39;: 0.8771032094955444, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;crowded&#39;, &#39;confidence&#39;: 0.8658456802368164, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;night&#39;, &#39;confidence&#39;: 0.8426163196563721, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;city&#39;, &#39;confidence&#39;: 0.8208400011062622, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;people&#39;, &#39;confidence&#39;: 0.6946084499359131, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;light&#39;, &#39;confidence&#39;: 0.6930656433105469, &#39;hint&#39;: None}
+</pre></div></div>
+</div>
+<p>建物、メトロポリス、ダウンタウン、外、街、人、ライトなど画像から様々な情報が取得できていることがわかります。ほんの数コードで高度な画像処理を行うことができました。</p>
+</section>
+<section id="ランドマーク（建物の検出）">
+<h1>ランドマーク（建物の検出）<a class="headerlink" href="#ランドマーク（建物の検出）" title="Link to this heading"></a></h1>
+<p>次にlist_models という種類のAIモデル表示します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>models = client.list_models()
+
+for x in models.models_property:
+    print(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;landmarks&#39;, &#39;categories&#39;: [&#39;outdoor_&#39;, &#39;户外_&#39;, &#39;屋外_&#39;, &#39;aoarlivre_&#39;, &#39;alairelibre_&#39;, &#39;building_&#39;, &#39;建筑_&#39;, &#39;建物_&#39;, &#39;edifício_&#39;]}
+</pre></div></div>
+</div>
+<div class="line-block">
+<div class="line">こちらは画像から建物などを検出してくれるモデルとなっているようです。</div>
+<div class="line">実際に使用してみましょう。</div>
+<div class="line">他にも様々なモデルがあり、OCRや物体検出などが行えます。使用できるモデルは<a class="reference external" href="https://learn.microsoft.com/ja-jp/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python-preview">こちら</a>をご確認ください。</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>domain = &quot;landmarks&quot;
+url = &quot;https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg&quot;
+
+# 画像を取得
+response = requests.get(url)
+image_bytes = BytesIO(response.content)
+
+# PILを使用して画像を開く
+image_pil = Image.open(image_bytes)
+display(image_pil)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/src_img_Untitled_14_0.png" src="../../_images/src_img_Untitled_14_0.png" />
+</div>
+</div>
+<p>では、上記の画像を list_model に推論させてみましょう。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#画像のLandmarks の取得
+language = &quot;ja&quot;
+
+analysis = client.analyze_image_by_domain(domain, url, language)
+
+for landmark in analysis.result[&quot;landmarks&quot;]:
+    print(landmark[&quot;name&quot;])
+    print(landmark[&quot;confidence&quot;])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+エッフェル塔
+0.971265435218811
+</pre></div></div>
+</div>
+<div class="line-block">
+<div class="line">画像にエッフェル塔が写っていることを検出してくれています。</div>
+<div class="line">また、コードにて言語（language)を日本語に設定しているため推論結果も日本語で検出されています。この用に英語だけではない多言語にも対応していることがわかりました。他にも有名人などをこのモデルでは検出することが可能です。</div>
+</div>
+<section id="文章生成">
+<h2>文章生成<a class="headerlink" href="#文章生成" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">最後に先程のエッフェル塔が検出された画像から画像の説明文の作成を行います。</div>
+<div class="line">describe_image のメソッドを使用すると簡単に画像から説明文を作成してくれます。実際に実装してみましょう。</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># 画像の説明文の作成
+domain = &quot;landmarks&quot;
+language = &quot;ja&quot;
+max_descriptions = 3
+
+analysis = client.describe_image(url, max_descriptions, language)
+
+for caption in analysis.captions:
+    print(caption.text)
+    print(caption.confidence)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+建物の前に立っているエッフェル塔
+0.3260513366368707
+時計台のあるエッフェル塔
+0.3250513366368707
+草の上に立っているエッフェル塔
+0.3240513366368707
+</pre></div></div>
+</div>
+<p>画像から説明文が生成されました。AI のConfidence（自信度）があまり高くないため少し違和感のある文章ではありますが、画像がどのような画像なのかは伝わるかと思います。実装は以上です。クラウドを使用して高度な画像処理を実装しました。最後に下記について考えてみましょう。</p>
+<p>実装が終わったら下記について考えて見ましょう。 - Azure AI サービスでの画像処理とローカルでの画像処理モデルの違いはなんですか？ - Azure AI サービスのメリットはなんですか？ - Azure AI サービスのデメリット・考慮事項は何でしょうか？ - ローカルで画像処理モデルを構築し、活用する場合と Azure AI サービスはどの用に使い分けますか？</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, trainocate.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

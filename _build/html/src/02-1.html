@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>【演習】画像分類モデルの作成 &mdash; Sphinx  ドキュメント</title>
+  <title>1-1【演習】画像分類モデルの作成 &mdash; Sphinx  ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="機械学習 プロジェクト全体像" href="02.html" />
-    <link rel="prev" title="AI とは、機械学習・DLとのすみわけ" href="01.html" /> 
+    <link rel="next" title="2.機械学習 プロジェクト全体像" href="02.html" />
+    <link rel="prev" title="1.AI とは、機械学習・DLとのすみわけ" href="01.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,18 +51,23 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="0.html">〜研修へようこそ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="0.html#AI-ビジネス-アジェンダ企画">AI ビジネス アジェンダ企画</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01.html">AI とは、機械学習・DLとのすみわけ</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">【演習】画像分類モデルの作成</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="0.html#0.AI-ビジネス-アジェンダ企画">0.AI ビジネス アジェンダ企画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01.html">1.AI とは、機械学習・DLとのすみわけ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1-1【演習】画像分類モデルの作成</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Custom-Visionについて">Custom Visionについて</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#手順">手順</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#手順">手順</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Azure-へログイン">Azure へログイン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Azure-AI-マルチアカウントのリソースを作成">Azure AI マルチアカウントのリソースを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#CustomVision-で画像分類modelを作成する">CustomVision で画像分類modelを作成する</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#まとめ">まとめ</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="02.html">機械学習 プロジェクト全体像</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02.html#AI-プロジェクトの開発プロセス">AI プロジェクトの開発プロセス</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03.html">【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04.html">【事例共有】事例から学ぶ AI の導入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html">2.機械学習 プロジェクト全体像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02.html#3.AI-プロジェクトの開発プロセス">3.AI プロジェクトの開発プロセス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.html">4.【事例共有】事例から学ぶ AI の導入</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05.html">【ワーク】AI プロジェクト立案</a></li>
 </ul>
 
@@ -80,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">【演習】画像分類モデルの作成</li>
+      <li class="breadcrumb-item active">1-1【演習】画像分類モデルの作成</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/src/02-1.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -90,8 +95,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="【演習】画像分類モデルの作成">
-<h1>【演習】画像分類モデルの作成<a class="headerlink" href="#【演習】画像分類モデルの作成" title="Link to this heading"></a></h1>
+  <section id="1-1【演習】画像分類モデルの作成">
+<h1>1-1【演習】画像分類モデルの作成<a class="headerlink" href="#1-1【演習】画像分類モデルの作成" title="Link to this heading"></a></h1>
 <p>本章では Custom Vision を用いて画像分類モデルの作成を行います。</p>
 <section id="Custom-Visionについて">
 <h2>Custom Visionについて<a class="headerlink" href="#Custom-Visionについて" title="Link to this heading"></a></h2>
@@ -99,17 +104,58 @@
 </section>
 <section id="手順">
 <h2>手順<a class="headerlink" href="#手順" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p>Custom Visionポータルにアクセスします。</p></li>
+<section id="Azure-へログイン">
+<h3>Azure へログイン<a class="headerlink" href="#Azure-へログイン" title="Link to this heading"></a></h3>
+<p>Web ブラウザを開き、<a class="reference external" href="https://azure.microsoft.com/ja-jp/get-started/azure-portal">Azure ポータル</a>にアクセスします。サインインを選択し、 ユーザー名とパスワードを入力して、アカウントにサインインします。</p>
+<p>サインインができると下記のようなAzure のホーム画面に遷移します。</p>
+<p><img alt="01" src="../_images/01.png" /></p>
+</section>
+<section id="Azure-AI-マルチアカウントのリソースを作成">
+<h3>Azure AI マルチアカウントのリソースを作成<a class="headerlink" href="#Azure-AI-マルチアカウントのリソースを作成" title="Link to this heading"></a></h3>
+<p>Azure のホーム画面の左上にある「リソースの作成」ボタンをクリックします。</p>
+<p>検索バーに「Azure AI」と入力し、候補から「Azure AI Service」を選択します。</p>
+<p><img alt="02" src="../_images/02.png" /></p>
+<p>「Azure AI Vision」の作成画面で、必要な情報を入力します</p>
+<p><img alt="03" src="../_images/03.png" /></p>
+<ul class="simple">
+<li><p>サブスクリプション: Cloud01~20 のどれかが選択出来るようになっています。</p></li>
+<li><p>リソース グループ: sawakura-group</p></li>
+<li><p>リージョン: EastUS</p></li>
+<li><p>リソース名: 名字+本日の日付+ai (重複などがあった場合はランダムな名前で構いません)</p></li>
+<li><p>価格レベル: Standard S0</p></li>
+<li><p>チェックボックスに☑マークを入れる</p></li>
+</ul>
+<p>設定が完了したら、「確認と作成」をクリックし、リソースを作成します。</p>
+<p>下記のようにリソースの作成が完了しました。と出力差れればリソースの作成は完了です。</p>
+<p><img alt="04" src="../_images/04.png" /></p>
+</section>
+<section id="CustomVision-で画像分類modelを作成する">
+<h3>CustomVision で画像分類modelを作成する<a class="headerlink" href="#CustomVision-で画像分類modelを作成する" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><div class="line-block">
+<div class="line"><a class="reference external" href="https://customvision.ai/">Custom Visionポータル</a>にアクセスします。</div>
+<div class="line">[サインイン] を選択します。 Azure portal へのサインインに使用したのと同じアカウントでサインインします。 <img alt="customvision" src="https://learn.microsoft.com/ja-JP/azure/ai-services/custom-vision-service/media/browser-home.png" /></div>
+</div>
+</li>
 <li><p>新しいプロジェクトを作成します。プロジェクト名や説明を追加します。</p></li>
-<li><p>「タグ」を追加し、各カテゴリのラベルを定義します。</p></li>
-<li><p>「画像の追加」をクリックし、サンプルデータをアップロードします。</p></li>
+</ol>
+<p><img alt="05" src="../_images/05.png" /></p>
+<ul class="simple">
+<li><p>Name: demo+名前+pro</p></li>
+<li><p>Resource: 先ほど作成した Azure AI のリソースの名前</p></li>
+<li><p>ProjectTypes: Classification
+その他、デフォルトの設定</p></li>
+</ul>
+<p>最後に CreateProject を選択し、プロジェクトの作成を行います。</p>
+<ol class="arabic simple" start="3">
+<li><p>次に画像分類の モデル を作成するための 「画像の追加(add images)」をクリックし、サンプルデータをアップロードします。</p></li>
 <li><p>アップロードした画像をラベル別にタグ付けします。</p></li>
 <li><p>「トレーニング」をクリックしてモデルをトレーニングします。トレーニングの進行状況を確認します。</p></li>
 <li><p>トレーニングが完了したら、テスト画像を使用してモデルのパフォーマンスを評価します。</p></li>
 <li><p>モデルの精度が満足いく場合は、「デプロイ」をクリックしてモデルをデプロイします。</p></li>
-<li><p>デプロイされたモデルにアクセスするためのエンドポイントURLやAPIキーが提供されます。</p></li>
+<li><p>デプロイされたモデルにアクセスするためのエンドポイントURLやAPIキーが提供されます。 こちらを使用することによって、アプリケーションから作成した AI を使用することが可能になります。</p></li>
 </ol>
+</section>
 </section>
 <section id="まとめ">
 <h2>まとめ<a class="headerlink" href="#まとめ" title="Link to this heading"></a></h2>
@@ -121,8 +167,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="01.html" class="btn btn-neutral float-left" title="AI とは、機械学習・DLとのすみわけ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="02.html" class="btn btn-neutral float-right" title="機械学習 プロジェクト全体像" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="01.html" class="btn btn-neutral float-left" title="1.AI とは、機械学習・DLとのすみわけ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02.html" class="btn btn-neutral float-right" title="2.機械学習 プロジェクト全体像" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
