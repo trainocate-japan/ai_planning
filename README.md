@@ -47,3 +47,9 @@ HTMLファイルをビルドする手順は以下の通りです。
 ```bash
 make html
 ```
+
+## 資料の確認手順
+open _build/html/index.html
+
+index.html が開きますのでそちらにて確認可能です。
+
