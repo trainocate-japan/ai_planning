@@ -58,13 +58,13 @@
 <li class="toctree-l1"><a class="reference internal" href="02.html">2.機械学習 プロジェクト全体像</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02.html#3.AI-プロジェクトの開発プロセス">3.AI プロジェクトの開発プロセス</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#コートの実装">コートの実装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#環境構築">環境構築</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#画像分析">画像分析</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#分析を行う画像の読み込み">分析を行う画像の読み込み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Azure-AI-サービスを用いた推論">Azure AI サービスを用いた推論</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#環境構築">環境構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#画像分析">画像分析</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#分析を行う画像の読み込み">分析を行う画像の読み込み</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#ランドマーク（建物の検出）">ランドマーク（建物の検出）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ランドマーク（建物の検出）">ランドマーク（建物の検出）</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#文章生成">文章生成</a></li>
 </ul>
 </li>
@@ -106,19 +106,30 @@
 <div class="line">実装環境として Azure Machine Learning というサービスを利用します。</div>
 <div class="line">Azure のトップページからリソースの作成をしてください。</div>
 </div>
-<p>コンピューティングから新規を選択します。 - コンピューティング名: 名字+日付+名前の頭文字（koike0401a） - 仮想マシンのサイズ: Standard_D2d_v5 - その他、デフォルト設定のまま作成を選択。</p>
+<p><img alt="1" src="../_images/012.png" /></p>
+<p>リソース作成の設定を行います。 - リソースグループ：Azure AIとおなじもの - 名前:一意の名前（例）demomlapp名字 - リージョン: Azure AI とおなじリージョン <img alt="2" src="../_images/021.png" /></p>
+<p>入力ができたら、確認及び作成を行います。</p>
+<p>作成後、作成した Azure ML リソースを開き、画像のようなスタジオの起動ボタンを選択します。</p>
+<p><img alt="3" src="../_images/031.png" /></p>
+<p>スタジオが起動できました。次に仮想マシンの作成を行います。 Azure ML のホーム画面の左側の目次タブからコンピューティングを選択します。</p>
+<p><img alt="4" src="../_images/042.png" /> コンピューティングから新規を選択します。 仮想マシンの種類が様々、ありますが、今回は一番オーソドックスなコンピューティングインスタンスを作成します。 <img alt="5" src="../_images/051.png" /></p>
+<ul class="simple">
+<li><p>新規を選択後、下記のように設定を行い、コンピューティングの作成を行ってください。</p></li>
+<li><p>コンピューティング名: 名字+日付+名前の頭文字（koike0401a）</p></li>
+<li><p>仮想マシンのサイズ: Standard_D2d_v5</p></li>
+<li><p>その他、デフォルト設定のまま作成を選択。</p></li>
+</ul>
+<section id="Azure-AI-サービスを用いた推論">
+<h2>Azure AI サービスを用いた推論<a class="headerlink" href="#Azure-AI-サービスを用いた推論" title="Link to this heading"></a></h2>
 <p>Notebook を開く。 下記の＋からファイルのアップロードを選択、<a class="reference internal" href="img/Untitled.html"><span class="doc">こちら</span></a>のNotebookをアップロードする。</p>
 <div class="line-block">
 <div class="line">【ノートブックの設定】 - コンピューティング：先ほど作成したコンピューティングを選択する。</div>
 <div class="line">- カーネル: Python 3.~ AzureML</div>
 </div>
 <p>ノートブックをアップロードし、リージョンとキーの置き換えができたら順に画像処理を実装していきましょう。　Shift + ENTER でコードを実行できます。</p>
-<section id="コートの実装">
-<h2>コートの実装<a class="headerlink" href="#コートの実装" title="Link to this heading"></a></h2>
 <p>以下のコードがアップロードされたノートブックに含まれています。 コード自体を暗記する必要はないですがどのような手順でどのような処理を実装しているのか抑えましょう。</p>
-</section>
 <section id="環境構築">
-<h2>環境構築<a class="headerlink" href="#環境構築" title="Link to this heading"></a></h2>
+<h3>環境構築<a class="headerlink" href="#環境構築" title="Link to this heading"></a></h3>
 <p>実装をするための環境の読み込みを行います。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -183,7 +194,7 @@ from urllib.request import urlopen
 </div>
 </section>
 <section id="画像分析">
-<h2>画像分析<a class="headerlink" href="#画像分析" title="Link to this heading"></a></h2>
+<h3>画像分析<a class="headerlink" href="#画像分析" title="Link to this heading"></a></h3>
 <p>まずは画像分析から行っていきます。 ComputerVisionClient というメソッドを使用するにことによって、次のことができます。</p>
 <ul class="simple">
 <li><p>画像の分析: 顔、色、タグなど、特定の機能の画像を分析できます。</p></li>
@@ -191,7 +202,7 @@ from urllib.request import urlopen
 </ul>
 <p>では実際にコードを実行してみましょう。</p>
 <section id="分析を行う画像の読み込み">
-<h3>分析を行う画像の読み込み<a class="headerlink" href="#分析を行う画像の読み込み" title="Link to this heading"></a></h3>
+<h4>分析を行う画像の読み込み<a class="headerlink" href="#分析を行う画像の読み込み" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -218,7 +229,7 @@ display(image_pil)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/src_03_10_0.png" src="../_images/src_03_10_0.png" />
+<img alt="../_images/src_03_11_0.png" src="../_images/src_03_11_0.png" />
 </div>
 </div>
 <p>上記の画像を使用し、分析を行います。まずは画像に写っている情報の検出を行いましょう。 ### 画像分析の実装</p>
@@ -265,7 +276,7 @@ for tag in image_analysis.tags:
 </section>
 </section>
 <section id="ランドマーク（建物の検出）">
-<h2>ランドマーク（建物の検出）<a class="headerlink" href="#ランドマーク（建物の検出）" title="Link to this heading"></a></h2>
+<h3>ランドマーク（建物の検出）<a class="headerlink" href="#ランドマーク（建物の検出）" title="Link to this heading"></a></h3>
 <p>次にlist_models という種類のAIモデル表示します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -312,7 +323,7 @@ display(image_pil)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/src_03_18_0.png" src="../_images/src_03_18_0.png" />
+<img alt="../_images/src_03_19_0.png" src="../_images/src_03_19_0.png" />
 </div>
 </div>
 <p>では、上記の画像を list_model に推論させてみましょう。</p>
@@ -344,6 +355,7 @@ for landmark in analysis.result[&quot;landmarks&quot;]:
 <div class="line">画像にエッフェル塔が写っていることを検出してくれています。</div>
 <div class="line">また、コードにて言語（language)を日本語に設定しているため推論結果も日本語で検出されています。この用に英語だけではない多言語にも対応していることがわかりました。他にも有名人などをこのモデルでは検出することが可能です。</div>
 </div>
+</section>
 <section id="文章生成">
 <h3>文章生成<a class="headerlink" href="#文章生成" title="Link to this heading"></a></h3>
 <div class="line-block">

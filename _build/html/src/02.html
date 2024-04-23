@@ -56,13 +56,14 @@
 <li class="toctree-l1"><a class="reference internal" href="02-1.html">1-1【演習】画像分類モデルの作成</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2.機械学習 プロジェクト全体像</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#プロジェクトスコープの決定">プロジェクトスコープの決定</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#新規ビジネスのためのAI">新規ビジネスのためのAI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#業務改善のためのAIか新規ビジネスのための-AI-か">業務改善のためのAIか新規ビジネスのための AI か</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#機械学習とソフトウェア導入の違い">機械学習とソフトウェア導入の違い</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#機械学習システムに求められる要件">機械学習システムに求められる要件</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#【補足】研究と実務の違い">【補足】研究と実務の違い</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#データエンジニアリング">データエンジニアリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#データの収集">データの収集</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#データの処理">データの処理</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#データの蓄積">データの蓄積</a></li>
 </ul>
@@ -77,18 +78,22 @@
 <li class="toctree-l3"><a class="reference internal" href="#分類の評価指標">分類の評価指標</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#混合行列">混合行列</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ROC/OCR">ROC/OCR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#決定係数（R^2）">決定係数（R^2）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#平均二乗誤差（MSE）">平均二乗誤差（MSE）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#平均絶対値誤差（MAE）">平均絶対値誤差（MAE）</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#回帰の評価指標">回帰の評価指標</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#決定係数">決定係数</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#平均二乗誤差">平均二乗誤差</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#平均絶対値誤差">平均絶対値誤差</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#【おまけ】生成-AI-の評価">【おまけ】生成 AI の評価</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#【補足】機械学習のニーズ">【補足】機械学習のニーズ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#モデルの運用">モデルの運用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#モデルの運用">モデルの運用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#バッチ推論とは">バッチ推論とは</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#リアルタイム推論とは">リアルタイム推論とは</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#オンプレミスでのAI構築・運用">オンプレミスでのAI構築・運用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#クラウドでのAI-構築・運用">クラウドでのAI 構築・運用</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="03.html">3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a></li>
@@ -132,9 +137,22 @@
 </div>
 <section id="プロジェクトスコープの決定">
 <h2>プロジェクトスコープの決定<a class="headerlink" href="#プロジェクトスコープの決定" title="Link to this heading"></a></h2>
-<p>業務改善のためのAIか新規ビジネスのためのAIかをまずは決定する必要がある。 ### 業務改善のためのAI</p>
-<section id="新規ビジネスのためのAI">
-<h3>新規ビジネスのためのAI<a class="headerlink" href="#新規ビジネスのためのAI" title="Link to this heading"></a></h3>
+<p>業務改善のためのAIか新規ビジネスのためのAIかをまずは決定する必要がある。</p>
+<section id="業務改善のためのAIか新規ビジネスのための-AI-か">
+<h3>業務改善のためのAIか新規ビジネスのための AI か<a class="headerlink" href="#業務改善のためのAIか新規ビジネスのための-AI-か" title="Link to this heading"></a></h3>
+<ul>
+<li><div class="line-block">
+<div class="line">業務改善における AI</div>
+<div class="line">長期的に利益を得る。すでに AI を使用・活用する人、モノが存在している。</div>
+<div class="line">AI の導入により、どのくらいコストが削減できたのか、効率化ができたのかなどが主な KPI となる。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">新規ビジネスにおける AI 新たに顧客や AI を使用する人、モノを見つける必要がある。</div>
+<div class="line">AI を導入ビジネスとして売上高・利益率:収益性を評価。売上高と利益の割合を計測する必要がる。</div>
+</div>
+</li>
+</ul>
 </section>
 <section id="機械学習とソフトウェア導入の違い">
 <h3>機械学習とソフトウェア導入の違い<a class="headerlink" href="#機械学習とソフトウェア導入の違い" title="Link to this heading"></a></h3>
@@ -159,11 +177,15 @@
 </section>
 <section id="データエンジニアリング">
 <h2>データエンジニアリング<a class="headerlink" href="#データエンジニアリング" title="Link to this heading"></a></h2>
+<p>ETL プロセス データの収集・処理・蓄積これらが行われる基盤があることが AI プロジェクトを成功させるうえで重要</p>
+<section id="データの収集">
+<h3>データの収集<a class="headerlink" href="#データの収集" title="Link to this heading"></a></h3>
 <div class="line-block">
-<div class="line">ETL プロセス データの収集・処理・蓄積これらが行われる基盤があることが AI プロジェクトを成功させるうえで重要 ### データの収集 データの発生箇所は多種多様化している。機械学習のワークロードでは特に様々な場所からデータを収集することが多い。 例えば、飲食店の売上予測をするAIを作りたい時、アンケートDB からアンケートデータや、PoSレジの売上データ、気象庁の天気データなどが売上を予測するうえで重要なデータとなる可能性が高い。</div>
+<div class="line">データの発生箇所は多種多様化している。機械学習のワークロードでは特に様々な場所からデータを収集することが多い。 例えば、飲食店の売上予測をするAIを作りたい時、アンケートDB からアンケートデータや、PoSレジの売上データ、気象庁の天気データなどが売上を予測するうえで重要なデータとなる可能性が高い。</div>
 <div class="line">このように一般的なデータを扱うシステムと異なり、いくつものDBやストレージを横断してデータを収集する。</div>
 <div class="line">形式も形も違うデータをまずは一箇所に集める。収集先をデータレイクという。</div>
 </div>
+</section>
 <section id="データの処理">
 <h3>データの処理<a class="headerlink" href="#データの処理" title="Link to this heading"></a></h3>
 <p>次にデータ処理を行う。 機械学習はデータから関係性を見つけだすために数値計算を行う。そのためにはまずはテーブルデータ化することが必要。 このための処理を行う。ビックデータを扱うため、Spark などの並列処理技術を使用することが多い。</p>
@@ -188,11 +210,12 @@
 <h2>モデル開発・検証の全体的な流れ<a class="headerlink" href="#モデル開発・検証の全体的な流れ" title="Link to this heading"></a></h2>
 <section id="データの前処理">
 <h3>データの前処理<a class="headerlink" href="#データの前処理" title="Link to this heading"></a></h3>
-<div class="line-block">
-<div class="line">AI の開発において最も時間のかかる、フローがデータの前処理です。 ETL の処理においてはテーブル化を行うための処理をしました。 こちらでは下記のような前処理を行います。 スケーリング</div>
-<div class="line">欠損値処理</div>
-<div class="line">数値化</div>
-</div>
+<p>AI の開発において最も時間のかかる、フローがデータの前処理です。 ETL の処理においてはテーブル化を行うための処理をしました。 こちらでは下記のような前処理を行います。</p>
+<ul class="simple">
+<li><p>スケーリング</p></li>
+<li><p>欠損値処理</p></li>
+<li><p>数値化</p></li>
+</ul>
 </section>
 <section id="構築">
 <h3>構築<a class="headerlink" href="#構築" title="Link to this heading"></a></h3>
@@ -210,22 +233,78 @@
 <h3>分類の評価指標<a class="headerlink" href="#分類の評価指標" title="Link to this heading"></a></h3>
 <section id="混合行列">
 <h4>混合行列<a class="headerlink" href="#混合行列" title="Link to this heading"></a></h4>
+<p>分類の評価方法 分類において、学習済みモデルを評価する指標には様々なものがありますが、その中でも代表的なものに下記の 4 つが挙げられます。</p>
+<ul class="simple">
+<li><p>正解率</p></li>
+<li><p>適合率</p></li>
+<li><p>再現率</p></li>
+<li><p>F 値</p></li>
+</ul>
+<p>分類の評価方法では、ここまで Accuracy（正解率）を使用してきました。しかし、実問題では Accuracy だけを用いて評価を行っていると危険性がある場合があります。本節では、分類で使用されるいくつかの評価方法を紹介していきます。</p>
+<p>例えば、ラベルの種類が 2 種類しかないような二値分類の問題設定でデータセットの中身の 99% がラベル 0、そして残りの 1% がラベル 1 というような割合の場合に Accuracy を最大化するためにどうするでしょうか。 全てをラベル 0 と答え、ラベル 1 に対しては全く分類しないという選択を取ることが考えられます。</p>
+<p>なぜなら、そのような選択を取ることにより、Accuracy は必然的に 99% になると言えるためです。このような結果が望ましい問題設定もあれば、望ましくない問題設定もあることが考えられます。</p>
+<p>ここではがん診断の例を用いて Accuracy 以外のモデルの評価指標について確認しましょう。</p>
+<p>人数 全体 260 健康な人 200 がん患者 60</p>
+<p>上記は実測値です。Precision など Accuracy 以外の指標を理解するためには、この実測値（実際の状態）と予測値（診察結果）の関係性を理解することが重要です。この関係性を理解するために混同行列 (Confusion Matrix) と呼ばれる以下の表を使用します。</p>
+<p>表の見方ですが、診察結果（縦の方向）と実際の状態（横方向）の関係を表したものです。それぞれの値には名前が付いており、下記のように表記され呼ばれます。</p>
+<div class="line-block">
+<div class="line">TP (True Positive、真陽性)：予測値を正例として、その予測が正しい場合の数</div>
+<div class="line">FP (False Positive、偽陽性)：予測値を正例として、その予測が誤りの場合の数</div>
+<div class="line">TN (True Negative、真陰性)：予測値を負例として、その予測が正しい場合の数</div>
+<div class="line">FN (False Negative、偽陰性)：予測値を負例として、その予測が誤りの場合の数</div>
+<div class="line">こちらの混合行列を軸に各指標を確認していきます。今回のがん診断では、正例をがん患者、負例を健康な患者として話を進めていきます。</div>
+</div>
+<p>True/False は予測したものが正しいか誤りか、Positive/Negative は予測値を正例としたか負例としたかと考えると組み合わせで理解しやすいです。</p>
+<ul>
+<li><div class="line-block">
+<div class="line">Accuracy（正解率）</div>
+<div class="line">全ての値を足し合わせて、実際にどれだけ合っているのか測るのが、Accuracy です。Accuracy は分類の精度を確認するための指標として最も一般的なものです。</div>
+</div>
+</li>
+<li><p>Precision 混同行列を縦方向に捉えます。正例（がん）と予測したもののうち、本当に正しく診断できた数の割合を表します。誤診を少なくしたい場合は Precision を重視することになります。</p></li>
+<li><p>Recall 混同行列を横方向に捉えます。実際の状態が正例（がん）のうち、どの程度正例であると予測できた数の割合です。誤診は許容するが、正例の見逃しを避けたい場合に Recall を重視することになります。</p></li>
+<li><p>F1 score（F 値） Precision と Recall は互いにトレードオフの関係にあります。どちらかの値を上げようとすると、もう一方の値が下がることになります。つまり、どちらかの指標を考慮しなければ、もう片方を 1 に近づけることができるので指標として少し極端な評価指標ということになります。</p></li>
+</ul>
+<p>そこで、Precision と Recall の両者のバランスを取るために調和平均で計算される指標が F1-score です。</p>
+<p>これらの指標は、取り組みたい問題設定によってどの評価指標を選択するかは異なります。問題設定合わせて重視するポイントをしっかり考慮し、最適な指標を選択しましょう。</p>
 </section>
 <section id="ROC/OCR">
 <h4>ROC/OCR<a class="headerlink" href="#ROC/OCR" title="Link to this heading"></a></h4>
+<p>ROC 曲線 分類の指標としてよく用いられるものには ROC 曲線もあります。</p>
+<p>ROC 曲線は2つの値から構成されます。</p>
+<p>True Positive Rate(真陽性率）： False Positive Rate(偽陽性率）： 横軸に FPR を, 縦軸に TPR をとり、分類の閾値を変化させていった時の各値をプロットした点を結ぶと ROC 曲線を描くことができます。 <img alt="02" src="../_images/041.png" /> 2 値分類の場合、ロジスティック回帰などではデフォルトで分類の閾値が 0.5 と設定されています。これは、例えばモデルがあるサンプルについてクラス 1 に属する確率を 0.6 と出力した時に、0.5 を上回るためそのサンプルはクラス 1 と分類する、ということです。閾値を仮に 0.3
+と定めれば、この例については予測確率は閾値を下回るため、クラス 0 と分類されることになります。</p>
+<p>このように、分類の閾値を調整することで分類結果は変化し、モデルの正例の検出力や、過剰検知の程度などが変化します。分類の閾値を、課題に応じて最適に調整を行いたい場合に、ROC 曲線の情報は参考になります。</p>
+<p>AUC AUC (Area of Under a Curve）は曲線の下のエリアを指す用語です。 基本的に機械学習領域では ROC/AUC として、Area of Under an ROC Curveを指すことが多いです。</p>
+<p>今回は ROC 曲線下の大きさを表します。すべてのサンプルを正しく予測できていた場合、ROC 曲線は FPR 0 で TPR 1 となるため、AUC は 1 となります。一方で、当てずっぽうに予測を行う場合、2 値分類の ROC 曲線は (FPR, TPR) = (0, 0) の点と (1, 1) の点を結んだ傾き 1 の直線となるため、AUC は 0.5 となります。</p>
+<p>このように、良い分類ができた時には 1 に近づく性質があり、AUC の値もモデルの評価に使用することができます。</p>
+<p>縦軸が True Positive Rate、横軸が False Positive Rate を表してます。</p>
+<p>ROC 曲線は青色のエリアが大きいほどよいです。ROC 曲線の最低ラインは曲線が直線となる時です。その時分類は 50% の精度で適当に分類しているのと同じことになるからです。 ### 回帰の評価指標 回帰分析では、モデルの予測の精度を評価するためのいくつかの指標があります。以下では、回帰モデルの評価によく使われる3つの主要な指標、決定係数、平均二乗誤差、平均絶対値誤差について説明します。</p>
+</section>
+<section id="決定係数（R^2）">
+<h4>決定係数（R^2）<a class="headerlink" href="#決定係数（R^2）" title="Link to this heading"></a></h4>
+<p>決定係数は、モデルがデータの変動をどれだけ説明しているかを示す指標です。値は0から1の範囲で、1に近いほどモデルの予測がデータの変動をよく説明していることを意味します。</p>
+<p>例えば、決定係数が0.8の場合、モデルはデータの80%の変動を説明しています。ただし、高い決定係数が必ずしも良いモデルであるとは限らないことに注意が必要です。</p>
+</section>
+<section id="平均二乗誤差（MSE）">
+<h4>平均二乗誤差（MSE）<a class="headerlink" href="#平均二乗誤差（MSE）" title="Link to this heading"></a></h4>
+<p>平均二乗誤差は、モデルの予測値と実際の値との差の平均を示す指標です。この誤差は2乗されているため、大きな誤差があるとその影響が大きくなります。</p>
+<p>平均二乗誤差が小さいほど、モデルの予測が実際の値に近いことを意味します。この指標は、外れ値の影響を受けやすいため、データの分布に応じて適切に評価する必要があります。</p>
+</section>
+<section id="平均絶対値誤差（MAE）">
+<h4>平均絶対値誤差（MAE）<a class="headerlink" href="#平均絶対値誤差（MAE）" title="Link to this heading"></a></h4>
+<p>平均絶対値誤差は、モデルの予測値と実際の値との差の絶対値の平均を示す指標です。この指標は、2乗誤差の影響を受けないため、外れ値の影響を受けにくいとされています。</p>
+<p>平均絶対値誤差も小さいほど、モデルの予測が実際の値に近いことを意味します。この指標は、モデルの予測の精度を評価する際によく使用されます。</p>
+<p>これらの指標を組み合わせて使用することで、回帰モデルの性能をより総合的に評価することができます。</p>
 </section>
 </section>
-<section id="回帰の評価指標">
-<h3>回帰の評価指標<a class="headerlink" href="#回帰の評価指標" title="Link to this heading"></a></h3>
-<section id="決定係数">
-<h4>決定係数<a class="headerlink" href="#決定係数" title="Link to this heading"></a></h4>
-</section>
-<section id="平均二乗誤差">
-<h4>平均二乗誤差<a class="headerlink" href="#平均二乗誤差" title="Link to this heading"></a></h4>
-</section>
-<section id="平均絶対値誤差">
-<h4>平均絶対値誤差<a class="headerlink" href="#平均絶対値誤差" title="Link to this heading"></a></h4>
-</section>
+<section id="【おまけ】生成-AI-の評価">
+<h3>【おまけ】生成 AI の評価<a class="headerlink" href="#【おまけ】生成-AI-の評価" title="Link to this heading"></a></h3>
+<div class="line-block">
+<div class="line">Chat GPT　を含む生成 AI のモデルの評価についてです。</div>
+<div class="line">生成AIの仕組みとして単語を多次元空間にプロットし、その位置空間情報に基づいて回答を生成します。</div>
+<div class="line">事前に質問と回答のペアを用意しバッチ処理で推論と答え合わせを行うことにより、生成 AI モデルの評価を行います。</div>
+</div>
 </section>
 </section>
 <section id="【補足】機械学習のニーズ">
@@ -235,13 +314,30 @@
 </section>
 <section id="モデルの運用">
 <h2>モデルの運用<a class="headerlink" href="#モデルの運用" title="Link to this heading"></a></h2>
+<p>モデルの運用は大きく、リアルタイムorバッチ推論、構築・デプロイの環境や再学習のパイプライン、監視などがある。 AI を導入するにあたってバッチ推論かリアルタイム推論のユースケースなのかを判断する</p>
+<section id="バッチ推論とは">
+<h3>バッチ推論とは<a class="headerlink" href="#バッチ推論とは" title="Link to this heading"></a></h3>
 <div class="line-block">
-<div class="line">モデルの運用は大きく、リアルタイムorバッチ推論、構築・デプロイの環境や再学習のパイプライン、監視などがある。 AI を導入するにあたってバッチ推論かリアルタイム推論のユースケースなのかを判断する ### バッチ推論とは 集に 1 回など決まったタイミングで一括で推論を行う。</div>
-<div class="line">ある程度、見積もりが立てて運用することが可能 ### リアルタイム推論とは データの送信とともに推論を行い予測を行う。 一時的な需要の増加にも可用性を維持出来るようなアーキテクチャを考慮する必要がある。</div>
+<div class="line">集に 1 回など決まったタイミングで一括で推論を行う。</div>
+<div class="line">ある程度、見積もりが立てて運用することが可能</div>
 </div>
+</section>
+<section id="リアルタイム推論とは">
+<h3>リアルタイム推論とは<a class="headerlink" href="#リアルタイム推論とは" title="Link to this heading"></a></h3>
+<p>データの送信とともに推論を行い予測を行う。 一時的な需要の増加にも可用性を維持出来るようなアーキテクチャを考慮する必要がある。</p>
+<p>次に、構築・運用を行う環境について確認する。大きく、オンプレミスかクラウドかまたは両方のハイブリッドを選択出来る。</p>
+</section>
+<section id="オンプレミスでのAI構築・運用">
+<h3>オンプレミスでのAI構築・運用<a class="headerlink" href="#オンプレミスでのAI構築・運用" title="Link to this heading"></a></h3>
 <div class="line-block">
-<div class="line">次に、構築・運用を行う環境について確認する。大きく、オンプレミスかクラウドかまたは両方のハイブリッドを選択出来る。 ### オンプレミスでのAI構築・運用 自社内で AI の開発・運用を行う。</div>
-<div class="line">設備投資が必要だが、よりセキュアにAI構築・運用を行うことが可能。既存の技術を使用することが出来る。 サーバー管理や環境構築から運用までをすべて自社で行う。 ### クラウドでのAI 構築・運用 事前の設備投資は必要ない、開発しながら求められるスペックなどを検討出来る。スケールアウトなども用意 デフォルトだとクラウドストレージへのデータのアップロードはインターネットを通るため、ネットワーク整備などが必要。データのガバナンスなどの確認も必要。</div>
+<div class="line">自社内で AI の開発・運用を行う。</div>
+<div class="line">設備投資が必要だが、よりセキュアにAI構築・運用を行うことが可能。既存の技術を使用することが出来る。 サーバー管理や環境構築から運用までをすべて自社で行う。</div>
+</div>
+</section>
+<section id="クラウドでのAI-構築・運用">
+<h3>クラウドでのAI 構築・運用<a class="headerlink" href="#クラウドでのAI-構築・運用" title="Link to this heading"></a></h3>
+<div class="line-block">
+<div class="line">事前の設備投資は必要ない、開発しながら求められるスペックなどを検討出来る。スケールアウトなども用意 デフォルトだとクラウドストレージへのデータのアップロードはインターネットを通るため、ネットワーク整備などが必要。データのガバナンスなどの確認も必要。</div>
 <div class="line">開発者はより AI 開発に焦点を置きながら開発を行うことが可能。</div>
 </div>
 <div class="line-block">
@@ -249,6 +345,7 @@
 <div class="line">モデルの運用状況の監視も重要だが、データドリフトの監視も重要。データの周期性などを理解することによって再学習のタイミングを決めることも可能。</div>
 </div>
 <p>クラウドでのAI の活用について実際に触って体験してみる。</p>
+</section>
 </section>
 </section>
 
