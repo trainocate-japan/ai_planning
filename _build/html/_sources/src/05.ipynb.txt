@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# 【ワーク】AI プロジェクト立案"
+    "# 【ワーク 3 】 AI プロジェクト立案"
    ]
   },
   {
