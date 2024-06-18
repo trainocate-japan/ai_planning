@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析） &mdash; Sphinx  ドキュメント</title>
+  <title>3-1 API での推論（AzureAIを使用した画像とテキスト分析） &mdash; Sphinx  ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -26,8 +26,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="4.【事例共有】事例から学ぶ AI の導入" href="04.html" />
-    <link rel="prev" title="2.機械学習 プロジェクト全体像" href="02.html" /> 
+    <link rel="next" title="【ワーク】AI プロジェクト立案" href="05.html" />
+    <link rel="prev" title="1-1【演習】画像分類モデルの作成" href="02-1.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,25 +53,23 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="0.html">〜研修へようこそ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="0.html#0.AI-ビジネス-アジェンダ企画">0.AI ビジネス アジェンダ企画</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01.html">1.AI とは、機械学習・DLとのすみわけ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-1.html">1-1【演習】画像分類モデルの作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02.html">2.機械学習 プロジェクト全体像</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02.html#3.AI-プロジェクトの開発プロセス">3.AI プロジェクトの開発プロセス</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Azure-AI-サービスを用いた推論">Azure AI サービスを用いた推論</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#環境構築">環境構築</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#画像分析">画像分析</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#分析を行う画像の読み込み">分析を行う画像の読み込み</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3-1 API での推論（AzureAIを使用した画像とテキスト分析）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#【補足：コンピューティングインスタンスの作成】">【補足：コンピューティングインスタンスの作成】</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Azure-AI-サービスを用いた推論">Azure AI サービスを用いた推論</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#ランドマーク（建物の検出）">ランドマーク（建物の検出）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#文章生成">文章生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#環境構築">環境構築</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#画像分析">画像分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ランドマーク（建物の検出）">ランドマーク（建物の検出）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#文章生成">文章生成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Text-Analytics">Text Analytics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Document-Intelligence">Document Intelligence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#まとめ">まとめ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#まとめ">まとめ</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="04.html">4.【事例共有】事例から学ぶ AI の導入</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05.html">【ワーク】AI プロジェクト立案</a></li>
 </ul>
 
@@ -89,7 +87,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）</li>
+      <li class="breadcrumb-item active">3-1 API での推論（AzureAIを使用した画像とテキスト分析）</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/src/03.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -99,8 +97,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="3-1【デモ】API-での推論（AzureAIを使用した画像とテキスト分析）">
-<h1>3-1【デモ】API での推論（AzureAIを使用した画像とテキスト分析）<a class="headerlink" href="#3-1【デモ】API-での推論（AzureAIを使用した画像とテキスト分析）" title="Link to this heading"></a></h1>
+  <section id="3-1-API-での推論（AzureAIを使用した画像とテキスト分析）">
+<h1>3-1 API での推論（AzureAIを使用した画像とテキスト分析）<a class="headerlink" href="#3-1-API-での推論（AzureAIを使用した画像とテキスト分析）" title="Link to this heading"></a></h1>
 <p>Lab 1 にて作成した、Azure AIリソースを使用して、機械学習モデルを使用した推論を行います。 今回は画像処理を行います。</p>
 <div class="line-block">
 <div class="line">実装環境として Azure Machine Learning というサービスを利用します。</div>
@@ -111,8 +109,13 @@
 <p>入力ができたら、確認及び作成を行います。</p>
 <p>作成後、作成した Azure ML リソースを開き、画像のようなスタジオの起動ボタンを選択します。</p>
 <p><img alt="3" src="../_images/031.png" /></p>
-<p>スタジオが起動できました。次に仮想マシンの作成を行います。 Azure ML のホーム画面の左側の目次タブからコンピューティングを選択します。</p>
-<p><img alt="4" src="../_images/042.png" /> コンピューティングから新規を選択します。 仮想マシンの種類が様々、ありますが、今回は一番オーソドックスなコンピューティングインスタンスを作成します。 <img alt="5" src="../_images/051.png" /></p>
+<p>スタジオが起動できました。</p>
+<section id="【補足：コンピューティングインスタンスの作成】">
+<h2>【補足：コンピューティングインスタンスの作成】<a class="headerlink" href="#【補足：コンピューティングインスタンスの作成】" title="Link to this heading"></a></h2>
+<p>Azure ML のホーム画面の左側の目次タブからコンピューティングを選択します。</p>
+<p><img alt="4" src="../_images/041.png" /></p>
+<p>コンピューティングから新規を選択します。 仮想マシンの種類が様々、ありますが、今回は一番オーソドックスなコンピューティングインスタンスを作成します。</p>
+<p><img alt="5" src="../_images/051.png" /></p>
 <ul class="simple">
 <li><p>新規を選択後、下記のように設定を行い、コンピューティングの作成を行ってください。</p></li>
 <li><p>コンピューティング名: 名字+日付+名前の頭文字（koike0401a）</p></li>
@@ -120,22 +123,76 @@
 <li><p>その他、デフォルト設定のまま作成を選択。</p></li>
 </ul>
 <section id="Azure-AI-サービスを用いた推論">
-<h2>Azure AI サービスを用いた推論<a class="headerlink" href="#Azure-AI-サービスを用いた推論" title="Link to this heading"></a></h2>
+<h3>Azure AI サービスを用いた推論<a class="headerlink" href="#Azure-AI-サービスを用いた推論" title="Link to this heading"></a></h3>
 <p>Notebook を開く。 下記の＋からファイルのアップロードを選択、<a class="reference internal" href="img/Untitled.html"><span class="doc">こちら</span></a>のNotebookをアップロードする。</p>
-<div class="line-block">
-<div class="line">【ノートブックの設定】 - コンピューティング：先ほど作成したコンピューティングを選択する。</div>
-<div class="line">- カーネル: Python 3.~ AzureML</div>
-</div>
+<p>【ノートブックの設定】 - コンピューティング：Azure Machine Learning Serverless〜 を選択</p>
+<p><img alt="de" src="../_images/061.jpg" /></p>
 <p>ノートブックをアップロードし、リージョンとキーの置き換えができたら順に画像処理を実装していきましょう。　Shift + ENTER でコードを実行できます。</p>
+<ul class="simple">
+<li><p>初めのコードの実行に時間がかかります。5分ほどコンピューティングの起動まで時間がかかることを認識して下さい。</p></li>
+</ul>
+<p>エンドポイントとキーの確認は Azure のポータル上の Azure AI リソースから確認できます。</p>
+<p><img alt="7" src="../_images/071.jpg" /></p>
 <p>以下のコードがアップロードされたノートブックに含まれています。 コード自体を暗記する必要はないですがどのような手順でどのような処理を実装しているのか抑えましょう。</p>
+</section>
+</section>
 <section id="環境構築">
-<h3>環境構築<a class="headerlink" href="#環境構築" title="Link to this heading"></a></h3>
+<h2>環境構築<a class="headerlink" href="#環境構築" title="Link to this heading"></a></h2>
 <p>実装をするための環境の読み込みを行います。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install azure-cognitiveservices-vision-computervision
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>!pip install azure-cognitiveservices-vision-computervision
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 50, Finished, Available)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Requirement already satisfied: azure-cognitiveservices-vision-computervision in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (0.9.0)
+Requirement already satisfied: azure-common~=1.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-cognitiveservices-vision-computervision) (1.1.28)
+Requirement already satisfied: msrest&gt;=0.5.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-cognitiveservices-vision-computervision) (0.7.1)
+Requirement already satisfied: isodate&gt;=0.6.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (0.6.1)
+Requirement already satisfied: requests~=2.16 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (2.28.1)
+Requirement already satisfied: azure-core&gt;=1.24.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.26.1)
+Requirement already satisfied: requests-oauthlib&gt;=0.5.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.3.1)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (2022.9.24)
+Requirement already satisfied: six&gt;=1.11.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-core&gt;=1.24.0-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.16.0)
+Requirement already satisfied: typing-extensions&gt;=4.0.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-core&gt;=1.24.0-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (4.4.0)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests~=2.16-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (2.1.1)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests~=2.16-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.26.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests~=2.16-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (3.4)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests-oauthlib&gt;=0.5.0-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (3.2.2)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>#　モジュールの読み込み
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
+from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
+from msrest.authentication import CognitiveServicesCredentials
+from PIL import Image
+import os
+# 下記でAzure AI サービスを利用するための認証情報を入力します。自身のAzure AIリソースからコピペを行ってください。*実務ではenvファイルなど別ファイルに認証情報は格納します。
+key = &#39;キーに置き換える&#39;
+credentials = CognitiveServicesCredentials(key)
+client = ComputerVisionClient(
+    endpoint=&quot;エンドポイントに置き換える&quot;,
+    credentials=credentials
+)
 </pre></div>
 </div>
 </div>
@@ -144,47 +201,14 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Requirement already satisfied: azure-cognitiveservices-vision-computervision in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (0.9.0)
-Requirement already satisfied: azure-common~=1.1 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from azure-cognitiveservices-vision-computervision) (1.1.28)
-Requirement already satisfied: msrest&gt;=0.5.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from azure-cognitiveservices-vision-computervision) (0.7.1)
-Requirement already satisfied: requests~=2.16 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (2.31.0)
-Requirement already satisfied: isodate&gt;=0.6.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (0.6.1)
-Requirement already satisfied: azure-core&gt;=1.24.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.26.4)
-Requirement already satisfied: requests-oauthlib&gt;=0.5.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.3.1)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (2022.9.24)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from requests~=2.16-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (3.1.0)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from requests~=2.16-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.26.16)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from requests~=2.16-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (3.4)
-Requirement already satisfied: six in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from isodate&gt;=0.6.0-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (1.16.0)
-Requirement already satisfied: typing-extensions&gt;=4.3.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from azure-core&gt;=1.24.0-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (4.6.0)
-Requirement already satisfied: oauthlib&gt;=3.0.0 in /anaconda/envs/azureml_py38/lib/python3.8/site-packages (from requests-oauthlib&gt;=0.5.0-&gt;msrest&gt;=0.5.0-&gt;azure-cognitiveservices-vision-computervision) (3.2.2)
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 51, Finished, Available)
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#　モジュールの読み込み
-from azure.cognitiveservices.vision.computervision import ComputerVisionClient
-from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
-from msrest.authentication import CognitiveServicesCredentials
-from PIL import Image
-import os
-# 下記でAzure AI サービスを利用するための認証情報を入力します。自身のAzure AIリソースからコピペを行ってください。*実務ではenvファイルなど別ファイルに認証情報は格納します。
-key = &#39;Azure AI サービスの key&#39;
-credentials = CognitiveServicesCredentials(key)
-client = ComputerVisionClient(
-    endpoint=&quot;Azure AI サービスのエンドポイント&quot;,
-    credentials=credentials
-)
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import requests
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>import requests
 import io
 from io import BytesIO
 import urllib
@@ -192,28 +216,34 @@ from urllib.request import urlopen
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 52, Finished, Available)
+</pre></div></div>
+</div>
 </section>
 <section id="画像分析">
-<h3>画像分析<a class="headerlink" href="#画像分析" title="Link to this heading"></a></h3>
+<h2>画像分析<a class="headerlink" href="#画像分析" title="Link to this heading"></a></h2>
 <p>まずは画像分析から行っていきます。 ComputerVisionClient というメソッドを使用するにことによって、次のことができます。</p>
 <ul class="simple">
 <li><p>画像の分析: 顔、色、タグなど、特定の機能の画像を分析できます。</p></li>
 <li><p>画像の説明を取得する: そのサブジェクト ドメインに基づいて画像の説明を取得します。</p></li>
 </ul>
 <p>では実際にコードを実行してみましょう。</p>
-<section id="分析を行う画像の読み込み">
-<h4>分析を行う画像の読み込み<a class="headerlink" href="#分析を行う画像の読み込み" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span>import requests
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><br/><span></span>import requests
 import numpy as np
 from PIL import Image
 from io import BytesIO
 
 # 画像のURL
-image_url = &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg&quot;
+image_url = &quot;https://img-s1.onedio.com/id-54a6b6cd791c244d1f69539d/rev-0/w-1200/h-1200/f-jpg/s-b4ac45e2de2fda761a0d739d5be75a62ec3652b1.jpg&quot;
 
 # 画像を取得
 response = requests.get(image_url)
@@ -225,19 +255,27 @@ display(image_pil)
 <br/></pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 53, Finished, Available)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/src_03_11_0.png" src="../_images/src_03_11_0.png" />
+<img alt="../_images/src_03_11_1.png" src="../_images/src_03_11_1.png" />
 </div>
 </div>
 <p>上記の画像を使用し、分析を行います。まずは画像に写っている情報の検出を行いましょう。 ### 画像分析の実装</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># image_analytics で上の画像分析する
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span># image_analytics で上の画像分析する
 image_analysis = client.analyze_image(image_url,visual_features=[VisualFeatureTypes.tags])
 
 for tag in image_analysis.tags:
@@ -245,26 +283,39 @@ for tag in image_analysis.tags:
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 54, Finished, Available)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;building&#39;, &#39;confidence&#39;: 0.9910045862197876, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;metropolis&#39;, &#39;confidence&#39;: 0.9403555393218994, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;metropolitan area&#39;, &#39;confidence&#39;: 0.9358731508255005, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;downtown&#39;, &#39;confidence&#39;: 0.9340376853942871, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;outdoor&#39;, &#39;confidence&#39;: 0.9233906269073486, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;skyscraper&#39;, &#39;confidence&#39;: 0.9208872318267822, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;urban area&#39;, &#39;confidence&#39;: 0.9175583124160767, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;street&#39;, &#39;confidence&#39;: 0.8893557786941528, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;commercial building&#39;, &#39;confidence&#39;: 0.8842802047729492, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;mixed-use&#39;, &#39;confidence&#39;: 0.8771032094955444, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;crowded&#39;, &#39;confidence&#39;: 0.8658456802368164, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;night&#39;, &#39;confidence&#39;: 0.8426163196563721, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;city&#39;, &#39;confidence&#39;: 0.8208400011062622, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;people&#39;, &#39;confidence&#39;: 0.6946084499359131, &#39;hint&#39;: None}
-{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;light&#39;, &#39;confidence&#39;: 0.6930656433105469, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;text&#39;, &#39;confidence&#39;: 0.9896776080131531, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;building&#39;, &#39;confidence&#39;: 0.9870737791061401, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;billboard&#39;, &#39;confidence&#39;: 0.9549688100814819, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;metropolitan area&#39;, &#39;confidence&#39;: 0.945885419845581, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;metropolis&#39;, &#39;confidence&#39;: 0.931691586971283, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;electronic signage&#39;, &#39;confidence&#39;: 0.9237869381904602, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;downtown&#39;, &#39;confidence&#39;: 0.9228506684303284, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;urban area&#39;, &#39;confidence&#39;: 0.917799174785614, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;commercial building&#39;, &#39;confidence&#39;: 0.9163552522659302, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;mixed-use&#39;, &#39;confidence&#39;: 0.9095696210861206, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;outdoor&#39;, &#39;confidence&#39;: 0.9088475108146667, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;skyscraper&#39;, &#39;confidence&#39;: 0.8997285962104797, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;cityscape&#39;, &#39;confidence&#39;: 0.8463119864463806, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;street&#39;, &#39;confidence&#39;: 0.8258714079856873, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;city&#39;, &#39;confidence&#39;: 0.7904025316238403, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;square&#39;, &#39;confidence&#39;: 0.7581031322479248, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;night&#39;, &#39;confidence&#39;: 0.71676105260849, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;crowded&#39;, &#39;confidence&#39;: 0.6613670587539673, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;people&#39;, &#39;confidence&#39;: 0.6387853622436523, &#39;hint&#39;: None}
+{&#39;additional_properties&#39;: {}, &#39;name&#39;: &#39;light&#39;, &#39;confidence&#39;: 0.46442094445228577, &#39;hint&#39;: None}
 </pre></div></div>
 </div>
 <p>建物、メトロポリス、ダウンタウン、外、街、人、ライトなど画像から様々な情報が取得できていることがわかります。 confidence はモデルの自信度を表しており、どのくらい予測結果に自身があるのかどうかを表しています。</p>
@@ -274,20 +325,27 @@ for tag in image_analysis.tags:
 <div class="line">ほんの数コードで高度な画像処理を行うことができました。</div>
 </div>
 </section>
-</section>
 <section id="ランドマーク（建物の検出）">
-<h3>ランドマーク（建物の検出）<a class="headerlink" href="#ランドマーク（建物の検出）" title="Link to this heading"></a></h3>
+<h2>ランドマーク（建物の検出）<a class="headerlink" href="#ランドマーク（建物の検出）" title="Link to this heading"></a></h2>
 <p>次にlist_models という種類のAIモデル表示します。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>models = client.list_models()
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>models = client.list_models()
 
 for x in models.models_property:
     print(x)
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 55, Finished, Available)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -303,10 +361,10 @@ for x in models.models_property:
 <div class="line">他にも様々なモデルがあり、OCRや物体検出などが行えます。使用できるモデルは<a class="reference external" href="https://learn.microsoft.com/ja-jp/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python-preview">こちら</a>をご確認ください。 では、また画像を読み込み、推論を行ってみましょう。</div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>domain = &quot;landmarks&quot;
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>domain = &quot;landmarks&quot;
 url = &quot;https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg&quot;
 
 # 画像を取得
@@ -319,19 +377,27 @@ display(image_pil)
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 56, Finished, Available)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/src_03_19_0.png" src="../_images/src_03_19_0.png" />
+<img alt="../_images/src_03_19_1.png" src="../_images/src_03_19_1.png" />
 </div>
 </div>
 <p>では、上記の画像を list_model に推論させてみましょう。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#画像のLandmarks の取得
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>#画像のLandmarks の取得
 language = &quot;ja&quot;
 
 analysis = client.analyze_image_by_domain(domain, url, language)
@@ -341,6 +407,14 @@ for landmark in analysis.result[&quot;landmarks&quot;]:
     print(landmark[&quot;confidence&quot;])
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 57, Finished, Available)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -357,16 +431,16 @@ for landmark in analysis.result[&quot;landmarks&quot;]:
 </div>
 </section>
 <section id="文章生成">
-<h3>文章生成<a class="headerlink" href="#文章生成" title="Link to this heading"></a></h3>
+<h2>文章生成<a class="headerlink" href="#文章生成" title="Link to this heading"></a></h2>
 <div class="line-block">
 <div class="line">最後に先程のエッフェル塔が検出された画像から画像の説明文の作成を行います。</div>
 <div class="line">describe_image のメソッドを使用すると簡単に画像から説明文を作成してくれます。実際に実装してみましょう。</div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># 画像の説明文の作成
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span># 画像の説明文の作成
 domain = &quot;landmarks&quot;
 language = &quot;ja&quot;
 max_descriptions = 3
@@ -378,6 +452,14 @@ for caption in analysis.captions:
     print(caption.confidence)
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 58, Finished, Available)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -392,16 +474,268 @@ for caption in analysis.captions:
 0.3240513366368707
 </pre></div></div>
 </div>
-<p>画像から説明文が生成されました。AI のConfidence（自信度）があまり高くないため少し違和感のある文章ではありますが、画像がどのような画像なのかは伝わるかと思います。実装は以上です。クラウドを使用して高度な画像処理を実装しました。最後に下記について考えてみましょう。</p>
+<p>画像から説明文が生成されました。AI のConfidence（自信度）があまり高くないため少し違和感のある文章ではありますが、画像がどのような画像なのかは伝わるかと思います。</p>
+<section id="Text-Analytics">
+<h3>Text Analytics<a class="headerlink" href="#Text-Analytics" title="Link to this heading"></a></h3>
+<p>次に自然言語処理の実装を行います。Text Analyticsというサービスのセンチメント分析を行いましょう。</p>
+<p>文章中から感情を判断してくれます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>!pip install azure-ai-textanalytics
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 59, Finished, Available)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Requirement already satisfied: azure-ai-textanalytics in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (5.3.0)
+Requirement already satisfied: azure-common~=1.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-ai-textanalytics) (1.1.28)
+Requirement already satisfied: azure-core&lt;2.0.0,&gt;=1.24.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-ai-textanalytics) (1.26.1)
+Requirement already satisfied: typing-extensions&gt;=4.0.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-ai-textanalytics) (4.4.0)
+Requirement already satisfied: isodate&lt;1.0.0,&gt;=0.6.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-ai-textanalytics) (0.6.1)
+Requirement already satisfied: requests&gt;=2.18.4 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-core&lt;2.0.0,&gt;=1.24.0-&gt;azure-ai-textanalytics) (2.28.1)
+Requirement already satisfied: six&gt;=1.11.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-core&lt;2.0.0,&gt;=1.24.0-&gt;azure-ai-textanalytics) (1.16.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests&gt;=2.18.4-&gt;azure-core&lt;2.0.0,&gt;=1.24.0-&gt;azure-ai-textanalytics) (2022.9.24)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests&gt;=2.18.4-&gt;azure-core&lt;2.0.0,&gt;=1.24.0-&gt;azure-ai-textanalytics) (2.1.1)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests&gt;=2.18.4-&gt;azure-core&lt;2.0.0,&gt;=1.24.0-&gt;azure-ai-textanalytics) (1.26.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests&gt;=2.18.4-&gt;azure-core&lt;2.0.0,&gt;=1.24.0-&gt;azure-ai-textanalytics) (3.4)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>from azure.ai.textanalytics import TextAnalyticsClient
+endpoint=&quot;エンドポイントに置き換える&quot;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 60, Finished, Available)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>text_analytics_client = TextAnalyticsClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+
+# あるスカイダイビングの口コミ
+documents = [
+    &quot;&quot;&quot;人生で最高の日を過ごした。スカイダイビングに行くことを決めて、自分の人生全体にもっと感謝するようになった。
+    インストラクターとも深い絆で結ばれ、彼女に生涯の友ができたような気がします。&quot;&quot;&quot;,
+    &quot;&quot;&quot;これは時間の無駄だった。このドロップの景色はどれも非常に退屈で、私が見たのは草だけだった。0/10
+    ダイバーには勧められない、&quot;&quot;&quot;,
+    &quot;&quot;&quot;これはかなり良かった！景色はまあまあだったし、インストラクターと一緒に楽しめた！私の経験についてあまり文句を言うことはできない&quot;&quot;&quot;,
+    &quot;&quot;&quot;私の経験には一言しかありません： WOW!!!！このような素晴らしいスカイダイビング会社が私の家のすぐ近くにあったなんて信じられません。
+    私は間違いなくリピーターになるでしょう！私は間違いなくリピーターになり、私の祖母もスカイダイビングに連れて行きたいです、
+    祖母もきっと気に入ると思います！&quot;&quot;&quot;
+]
+
+# Text Analyticsの実装
+result = text_analytics_client.analyze_sentiment(documents, show_opinion_mining=True)
+#結果の成形と表示
+docs = [doc for doc in result if not doc.is_error]
+
+print(&quot;Let&#39;s visualize the sentiment of each of these documents&quot;)
+for idx, doc in enumerate(docs):
+    print(f&quot;Document text: {documents[idx]}&quot;)
+    print(f&quot;Overall sentiment: {doc.sentiment}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 61, Finished, Available)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Let&#39;s visualize the sentiment of each of these documents
+Document text: 人生で最高の日を過ごした。スカイダイビングに行くことを決めて、自分の人生全体にもっと感謝するようになった。
+    インストラクターとも深い絆で結ばれ、彼女に生涯の友ができたような気がします。
+Overall sentiment: positive
+Document text: これは時間の無駄だった。このドロップの景色はどれも非常に退屈で、私が見たのは草だけだった。0/10
+    ダイバーには勧められない、
+Overall sentiment: negative
+Document text: これはかなり良かった！景色はまあまあだったし、インストラクターと一緒に楽しめた！私の経験についてあまり文句を言うことはできない
+Overall sentiment: positive
+Document text: 私の経験には一言しかありません： WOW!!!！このような素晴らしいスカイダイビング会社が私の家のすぐ近くにあったなんて信じられません。
+    私は間違いなくリピーターになるでしょう！私は間違いなくリピーターになり、私の祖母もスカイダイビングに連れて行きたいです、
+    祖母もきっと気に入ると思います！
+Overall sentiment: positive
+</pre></div></div>
+</div>
 </section>
+<section id="Document-Intelligence">
+<h3>Document Intelligence<a class="headerlink" href="#Document-Intelligence" title="Link to this heading"></a></h3>
+<div class="line-block">
+<div class="line">レシートや領収書などの文字認識を行います。</div>
+<div class="line">ただ文字認識を行うだけではなく、データのエンティティ（ロケーション・日程・住所）を保持しながらフォーム抽出を行います。</div>
+</div>
+<p><a class="reference external" href="https://drive.google.com/file/d/1AUxcaJMCf3x-94pbClJCuLukO7HA2RiP/view?usp=drive_link">サンプルデータ</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>!pip install azure-ai-formrecognizer azure-core
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 62, Finished, Available)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Requirement already satisfied: azure-ai-formrecognizer in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (3.3.3)
+Requirement already satisfied: azure-core in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (1.26.1)
+Requirement already satisfied: msrest&gt;=0.6.21 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-ai-formrecognizer) (0.7.1)
+Requirement already satisfied: typing-extensions&gt;=4.0.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-ai-formrecognizer) (4.4.0)
+Requirement already satisfied: azure-common&gt;=1.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-ai-formrecognizer) (1.1.28)
+Requirement already satisfied: six&gt;=1.11.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-core) (1.16.0)
+Requirement already satisfied: requests&gt;=2.18.4 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from azure-core) (2.28.1)
+Requirement already satisfied: isodate&gt;=0.6.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from msrest&gt;=0.6.21-&gt;azure-ai-formrecognizer) (0.6.1)
+Requirement already satisfied: requests-oauthlib&gt;=0.5.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from msrest&gt;=0.6.21-&gt;azure-ai-formrecognizer) (1.3.1)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from msrest&gt;=0.6.21-&gt;azure-ai-formrecognizer) (2022.9.24)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests&gt;=2.18.4-&gt;azure-core) (3.4)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests&gt;=2.18.4-&gt;azure-core) (1.26.4)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests&gt;=2.18.4-&gt;azure-core) (2.1.1)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in /home/trusted-service-user/cluster-env/env/lib/python3.10/site-packages (from requests-oauthlib&gt;=0.5.0-&gt;msrest&gt;=0.6.21-&gt;azure-ai-formrecognizer) (3.2.2)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>import time
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+from datetime import datetime
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 63, Finished, Available)
+</pre></div></div>
+</div>
+<div class="line-block">
+<div class="line">ダウンロードしたサンプルの領収書をこちらにアップロードします。</div>
+<div class="line">本ノートブックをアップロードした手順と同様にファイルの追加→ファイルのアップロードと選択し、ダウンロードしました PDF ファイルをアップロードしてください。</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython notranslate"><div class="highlight"><pre><span></span>client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+
+
+# ファイルを読み込んで
+file_path = &quot;Users/cloud（アカウント番号に置き換える）/Amazon.co.jp - 注文番号 503-5459522-3239010 (1).pdf&quot;
+#自身のアカウント番号に書き換えてください。アカウントのメールアドレスの @trainocate.biz の前の番号です。
+with open(file_path, &quot;rb&quot;) as file:
+    print(f&quot;{datetime.now()}: アップロード開始&quot;)
+
+    # 分析開始
+    poller = client.begin_analyze_document(&quot;prebuilt-document&quot;, file)
+
+    # ステータスが完了になるまでポーリング
+    while not poller.done():
+        print(f&quot;{datetime.now()}: Waiting...&quot;)
+        time.sleep(3)
+
+    # 結果を取得
+    result = poller.result()
+    print(result)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+StatementMeta(b3e1c730-80e9-4c9b-ac16-f6e393b9ab8c, 0, 64, Finished, Available)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [127], line 7</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> file_path <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Users/cloudアカウント番号/Amazon.co.jp - 注文番号 503-5459522-3239010 (1).pdf</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> <span style="color: rgb(95,135,135)">#自身のアカウント番号に書き換えてください。アカウントのメールアドレスの @trainocate.biz の前の番号です。</span>
+<span class="ansi-green-fg">----&gt; 7</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">file_path</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">rb</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> file:
+<span class="ansi-green-intense-fg ansi-bold">      8</span>     <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>datetime<span style="color: rgb(98,98,98)">.</span>now()<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">: アップロード開始</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">     10</span>     <span style="color: rgb(95,135,135)"># 分析開始</span>
+
+File <span class="ansi-green-fg">~/cluster-env/env/lib/python3.10/site-packages/IPython/core/interactiveshell.py:282</span>, in <span class="ansi-cyan-fg">_modified_open</span><span class="ansi-blue-fg">(file, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    275</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> file <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> {<span style="color: rgb(98,98,98)">0</span>, <span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">2</span>}:
+<span class="ansi-green-intense-fg ansi-bold">    276</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-intense-fg ansi-bold">    277</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">IPython won</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t let you open fd=</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>file<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> by default </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    278</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">as it is likely to crash IPython. If you know what you are doing, </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    279</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">you can use builtins</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> open.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    280</span>     )
+<span class="ansi-green-fg">--&gt; 282</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">io_open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">file</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;Users/cloudアカウント番号/Amazon.co.jp - 注文番号 503-5459522-3239010 (1).pdf&#39;
+</pre></div></div>
+</div>
+<p>元の請求書の書式を保ったまま</p>
+<p>実装は以上です。クラウドを使用して高度な画像処理を実装しました。最後に下記について考えてみましょう。</p>
 </section>
 <section id="まとめ">
-<h2>まとめ<a class="headerlink" href="#まとめ" title="Link to this heading"></a></h2>
-<p>実装が終わったら下記について考えて見ましょう。 - Azure AI サービスでの画像処理とローカルでの画像処理モデルの違いはなんですか？ - Azure AI サービスのメリットはなんですか？ - Azure AI サービスのデメリット・考慮事項は何でしょうか？ - ローカルで画像処理モデルを構築し、活用する場合と Azure AI サービスはどの用に使い分けますか？ - ChatGPT など生成 AI との違いはなんですか？ - 実装した AI はどのようなユースケースで使用できそうですか？</p>
+<h3>まとめ<a class="headerlink" href="#まとめ" title="Link to this heading"></a></h3>
+<p>実装が終わったら下記について考えて見ましょう。</p>
+<ul class="simple">
+<li><p>Azure AI サービスでの画像処理とローカルでの画像処理モデルの違いはなんですか？</p></li>
+<li><p>Azure AI サービスのメリットはなんですか？</p></li>
+<li><p>Azure AI サービスのデメリット・考慮事項は何でしょうか？</p></li>
+<li><p>ローカルで画像処理モデルを構築し、活用する場合と Azure AI サービスはどの用に使い分けますか？</p></li>
+<li><p>ChatGPT など 生成 AI との違いはなんですか？</p></li>
+<li><p>実装した AI はどのようなユースケースで使用できそうですか？</p></li>
+</ul>
 <div class="line-block">
 <div class="line">クラウドの推論モデルを使用し簡単に実装することができました。</div>
 <div class="line">ビジネス目線でAPIモデルのメリットとデメリットを洗い出しましょう。</div>
 </div>
+</section>
 </section>
 </section>
 
@@ -409,8 +743,8 @@ for caption in analysis.captions:
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="02.html" class="btn btn-neutral float-left" title="2.機械学習 プロジェクト全体像" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="04.html" class="btn btn-neutral float-right" title="4.【事例共有】事例から学ぶ AI の導入" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="02-1.html" class="btn btn-neutral float-left" title="1-1【演習】画像分類モデルの作成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05.html" class="btn btn-neutral float-right" title="【ワーク】AI プロジェクト立案" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

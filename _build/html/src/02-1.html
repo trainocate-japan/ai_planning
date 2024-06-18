@@ -58,10 +58,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#手順">手順</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Azure-へログイン">Azure へログイン</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Azure-AI-マルチアカウントのリソースを作成">Azure AI マルチアカウントのリソースを作成</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#CustomVision-で画像分類modelを作成する">CustomVision で画像分類modelを作成する</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#CustomVision-を用いた画像処理">CustomVision を用いた画像処理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#CustomVision-で画像分類モデルを作成">CustomVision で画像分類モデルを作成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#プロジェクト作成">プロジェクト作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#CustomVision-を用いた画像処理・学習">CustomVision を用いた画像処理・学習</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#モデルの検証・テスト">モデルの検証・テスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#モデルのデプロイ">モデルのデプロイ</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#まとめ">まとめ</a></li>
 </ul>
 </li>
@@ -130,8 +135,11 @@
 <p>下記のようにリソースの作成が完了しました。と出力差れればリソースの作成は完了です。</p>
 <p><img alt="04" src="../_images/04.png" /></p>
 </section>
-<section id="CustomVision-で画像分類modelを作成する">
-<h3>CustomVision で画像分類modelを作成する<a class="headerlink" href="#CustomVision-で画像分類modelを作成する" title="Link to this heading"></a></h3>
+</section>
+<section id="CustomVision-で画像分類モデルを作成">
+<h2>CustomVision で画像分類モデルを作成<a class="headerlink" href="#CustomVision-で画像分類モデルを作成" title="Link to this heading"></a></h2>
+<section id="プロジェクト作成">
+<h3>プロジェクト作成<a class="headerlink" href="#プロジェクト作成" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line"><a class="reference external" href="https://customvision.ai/">Custom Visionポータル</a>にアクセスします。</div>
@@ -149,21 +157,54 @@
 </ul>
 <p>最後に CreateProject を選択し、プロジェクトの作成を行います。</p>
 </section>
+<section id="CustomVision-を用いた画像処理・学習">
+<h3>CustomVision を用いた画像処理・学習<a class="headerlink" href="#CustomVision-を用いた画像処理・学習" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="https://drive.google.com/drive/folders/1LcV85Xp6LlyCZaef3k4iHkIrPfGdbza9?usp=sharing">こちら</a>より学習にて使用するデータのダウンロードを行って下さい。</p>
+<p>次に画像分類の モデル を作成するための 「画像の追加(add images)」をクリックし、サンプルデータをアップロードします。</p>
+<p><img alt="addimage" src="../_images/01.jpg" /></p>
+<div class="line-block">
+<div class="line">まずは犬の画像からアップロードします。</div>
+<div class="line">ダウンロードを行った dog フォルダの画像をすべてアップロードしてください。</div>
+</div>
+<p>次に、アップロードした画像をラベル別にタグ付けします。 tagname に dog とラベルをつけてアップロードをしましょう。</p>
+<p><img alt="addlabel" src="../_images/02.jpg" /></p>
+<div class="line-block">
+<div class="line">こちらで犬の画像に対して dog というラベルを紐づけることができました。 猫の画像に対しても同じ処理を実装しましょう。</div>
+<div class="line">下記から、画像をアップロードできます。 <img alt="image1" src="../_images/03.jpg" /></div>
+</div>
+<p>猫の画像には cat というラベルを紐づけてあげましょう。 <img alt="addcat" src="../_images/05.jpg" /></p>
+<p>ここまでで画像分類モデルの作成に必要な犬と猫の画像データとそれぞれに答えとなる犬・猫のラベルを降ることができました。学習に必要な教師データの用意ができましたので学習を行います。</p>
+<p>画面右絵の⚙マークの Train ボタンを選択してください。 <img alt="trainmodel" src="../_images/06.jpg" /></p>
+<p>Quick Training を選択し、Trainをクリックしてモデルをトレーニングします。（トレーニングには数分-10分ほどかかります。お手洗い休憩などをおとりください。）</p>
+<p>トレーニングが完了したら、モデルのパフォーマンスを評価します。 <img alt="data" src="../_images/07.jpg" /></p>
 </section>
-<section id="CustomVision-を用いた画像処理">
-<h2>CustomVision を用いた画像処理<a class="headerlink" href="#CustomVision-を用いた画像処理" title="Link to this heading"></a></h2>
-<ol class="arabic simple" start="3">
-<li><p>次に画像分類の モデル を作成するための 「画像の追加(add images)」をクリックし、サンプルデータをアップロードします。</p></li>
-<li><p>アップロードした画像をラベル別にタグ付けします。</p></li>
-<li><p>「トレーニング」をクリックしてモデルをトレーニングします。トレーニングの進行状況を確認します。</p></li>
-<li><p>トレーニングが完了したら、テスト画像を使用してモデルのパフォーマンスを評価します。</p></li>
-<li><p>モデルの精度が満足いく場合は、「デプロイ」をクリックしてモデルをデプロイします。</p></li>
-<li><p>デプロイされたモデルにアクセスするためのエンドポイントURLやAPIキーが提供されます。 こちらを使用することによって、アプリケーションから作成した AI を使用することが可能になります。</p></li>
-</ol>
+<section id="モデルの検証・テスト">
+<h3>モデルの検証・テスト<a class="headerlink" href="#モデルの検証・テスト" title="Link to this heading"></a></h3>
+<p>precision と記載がありますが精度です（MSドキュメント引用）</p>
+<p>犬と猫を見分ける人間に取っては簡単な実装ですが精度が100 %ではないことが確認できます。 次のことについて考えてみて下さい。</p>
+<ul class="simple">
+<li><p>精度が高い？低い？</p></li>
+<li><p>精度が100% 出ないのはなぜか</p></li>
+<li><p>精度向上をするにはどうしたらいいか？</p></li>
+</ul>
+<p>また、画面の右上の Predictions を選択するとモデルのテストをすることができます。</p>
+<p><img alt="pre" src="https://learn.microsoft.com/ja-jp/azure/ai-services/custom-vision-service/media/test-your-model/predictions-tab.png" /></p>
+<p>試しに、ダウンロードをした画像と犬でも猫でもない画像を Web からダウンロードし、推論をさせてみましょう。 犬でも猫でもない画像に対してもどちらかの予測結果が出力されたのではないでしょうか。 こちらも特化型 AI の特徴です。生成 AI のような汎用型の AI ではないため、学習をした際のラベルのどちらかに予測結果が推論されます。</p>
+</section>
+<section id="モデルのデプロイ">
+<h3>モデルのデプロイ<a class="headerlink" href="#モデルのデプロイ" title="Link to this heading"></a></h3>
+<p>モデルの精度が満足いく場合は、「Publish（デプロイ）」をクリックすることによってモデルをデプロイします。</p>
+<p>デプロイされたモデルにアクセスするためのエンドポイントURLやAPIキーが Prediction URL から提供されます。</p>
+<p><img alt="datadlou" src="../_images/08.jpg" /></p>
+<p>こちらを使用することによって、アプリケーションから作成した AI を使用することが可能になります。 予測API の使用方法は<a class="reference external" href="https://learn.microsoft.com/ja-jp/azure/ai-services/custom-vision-service/use-prediction-api">こちら</a>をご確認ください。</p>
+</section>
 </section>
 <section id="まとめ">
 <h2>まとめ<a class="headerlink" href="#まとめ" title="Link to this heading"></a></h2>
-<p>Microsoft Custom Visionを使用すると、独自の画像分類モデルを簡単に作成し、デプロイすることができます。 手順は直感的であり、初心者でも迅速にモデルを構築することができます。</p>
+<div class="line-block">
+<div class="line">Microsoft Custom Visionを使用すると、独自の画像分類モデルを簡単に作成し、デプロイすることができます。 手順は直感的であり、初心者でも迅速にモデルを構築することができます。</div>
+<div class="line">また、実際のモデル構築（AI 構築）よりもデータを揃えたり、前処理を行うほうが時間や手間のかかることが理解できたのではないでしょうか。</div>
+</div>
 </section>
 </section>
 
